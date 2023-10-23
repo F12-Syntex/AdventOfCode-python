@@ -1,0 +1,78 @@
+[
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Year2016Day",
+        "importPath": "advent_of_code.solutions.Y2016.Year2016Day",
+        "description": "advent_of_code.solutions.Y2016.Year2016Day",
+        "isExtraImport": true,
+        "detail": "advent_of_code.solutions.Y2016.Year2016Day",
+        "documentation": {}
+    },
+    {
+        "label": "Day",
+        "kind": 6,
+        "importPath": "advent_of_code.core.Day",
+        "description": "advent_of_code.core.Day",
+        "peekOfCode": "class Day(ABC):\n    @abstractmethod\n    def part1(self):\n        pass\n    @abstractmethod\n    def part2(self):\n        pass\n    @abstractmethod\n    def year(self) -> int:\n        pass",
+        "detail": "advent_of_code.core.Day",
+        "documentation": {}
+    },
+    {
+        "label": "sol",
+        "kind": 6,
+        "importPath": "advent_of_code.solutions.Y2016.day1.sol",
+        "description": "advent_of_code.solutions.Y2016.day1.sol",
+        "peekOfCode": "class sol(Year2016Day):\n    def part1(self):\n        print(self.getInput())\n    def part2(self):\n      print(self.getInput())\nprint(sol().part1())",
+        "detail": "advent_of_code.solutions.Y2016.day1.sol",
+        "documentation": {}
+    },
+    {
+        "label": "Year2016Day",
+        "kind": 6,
+        "importPath": "advent_of_code.solutions.Y2016.Year2016Day",
+        "description": "advent_of_code.solutions.Y2016.Year2016Day",
+        "peekOfCode": "class Year2016Day(ABC):\n    @abstractmethod\n    def part1(self):\n        pass\n    @abstractmethod\n    def part2(self):\n        pass\n    def year(self) -> int:\n        return 2016\n    def getInput(self):",
+        "detail": "advent_of_code.solutions.Y2016.Year2016Day",
+        "documentation": {}
+    }
+]
