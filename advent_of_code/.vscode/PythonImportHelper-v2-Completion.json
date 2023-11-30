@@ -1,0 +1,20 @@
+[
+    {
+        "label": "Day1",
+        "kind": 6,
+        "importPath": "2015.day1.day1",
+        "description": "2015.day1.day1",
+        "peekOfCode": "class Day1:\n    def __init__(self):\n        pass\n    def solve_part1(self):\n        pass\n    def solve_part2(self):\n        pass\n    def loadInputFiles():\n        COOKIE = \"\"\n        pass",
+        "detail": "2015.day1.day1",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2015.day1.day1",
+        "description": "2015.day1.day1",
+        "peekOfCode": "solver = Day1()\nsolver.loadInputFiles()",
+        "detail": "2015.day1.day1",
+        "documentation": {}
+    }
+]
