@@ -5,127 +5,60 @@ class Day1:
         self.input_content = None
 
     def solve_part1(self):
-
-        sum = 0
+        sum = 0 
 
         for line in self.input_content.splitlines():
-            #fins the first number in the string starting from the left
+            leftNumber = "-1" 
+            rightNumber = "-1" 
 
-            firstNum = None
-            secondNum = None
+            l = len(line) - 1
+            for r in range(len(line)):
+                
+                if line[r].isdigit() and leftNumber == "-1":
+                    leftNumber = line[r]
+                
+                if line[l].isdigit() and rightNumber == "-1":
+                    rightNumber = line[l]
+                l -= 1
 
-            for i in range(len(line)):
-                if line[i].isdigit():
-                    first_num = line[i]
-                    break
-
-            
-            #finds the second number in the string starting from the right
-            for i in range(len(line)-1, -1, -1):
-                if line[i].isdigit():
-                    second_num = line[i]
-                    break
-            
-            joinedNum = first_num + "" + second_num
-
-            #converts the joined number to an integer
-            joinedNum = int(joinedNum)
-            sum += joinedNum
-
+            if leftNumber != "-1" and rightNumber != "-1": 
+                joinedNum = leftNumber + rightNumber
+                joinedNum = int(joinedNum)
+                sum += joinedNum
 
         return sum
 
     def solve_part2(self):
-
-        sum = 0
+        sum = 0 
 
         for line in self.input_content.splitlines():
-            #fins the first number in the string starting from the left
+            leftNumber = "-1" 
+            rightNumber = "-1" 
 
-            firstNum = None
-            secondNum = None
+            l = len(line) - 1
+            for r in range(len(line)):
 
-            for i in range(len(line)):
-                #make a string from index 0 to this index
-                substring = line[0:i+1]
+                left = self.convertStringToNumber(line[0:r+1])
+                right = self.convertStringToNumber(line[l:len(line)])
+
+                if line[r].isdigit():
+                    left = line[r]
                 
-                if "one" in substring:
-                    first_num = str(1)
-                    break
-                if "two" in substring:
-                    first_num = str(2)
-                    break
-                if "three" in substring:
-                    first_num = str(3)
-                    break
-                if "four" in substring:
-                    first_num = str(4)
-                    break
-                if "five" in substring:
-                    first_num = str(5)
-                    break
-                if "six" in substring:
-                    first_num = str(6)
-                    break
-                if "seven" in substring:
-                    first_num = str(7)
-                    break
-                if "eight" in substring:
-                    first_num = str(8)
-                    break
-                if "nine" in substring:
-                    first_num = str(9)
-                    break
+                if line[l].isdigit():
+                    right = line[l]
+
+                if left[0].isdigit() and leftNumber == "-1":
+                    leftNumber = left[0]
                 
+                if right[0].isdigit() and rightNumber == "-1":
+                    rightNumber = right[0]
+                    
+                l -= 1
 
-                if line[i].isdigit():
-                    first_num = line[i]
-                    break
-            
-            
-            #finds the second number in the string starting from the right
-            for i in range(len(line)-1, -1, -1):
-
-                substring = line[i:len(line)]
-
-                if "one" in substring:
-                    second_num = str(1)
-                    break
-                if "two" in substring:
-                    second_num = str(2)
-                    break
-                if "three" in substring:
-                    second_num = str(3)
-                    break
-                if "four" in substring:
-                    second_num = str(4)
-                    break
-                if "five" in substring:
-                    second_num = str(5)
-                    break
-                if "six" in substring:
-                    second_num = str(6)
-                    break
-                if "seven" in substring:
-                    second_num = str(7)
-                    break
-                if "eight" in substring:
-                    second_num = str(8)
-                    break
-                if "nine" in substring:
-                    second_num = str(9)
-                    break
-
-                if line[i].isdigit():
-                    second_num = line[i]
-                    break
-
-            joinedNum = first_num + "" + second_num
-
-            #converts the joined number to an integer
-            joinedNum = int(joinedNum)
-            sum += joinedNum
-
+            if leftNumber != "-1" and rightNumber != "-1": 
+                joinedNum = leftNumber + rightNumber
+                joinedNum = int(joinedNum)
+                sum += joinedNum
 
         return sum
 
@@ -134,6 +67,27 @@ class Day1:
         with open(inputPath, "r") as f:
             self.input_content = f.read()
 
+    
+    def convertStringToNumber(self, string):
+        if "one" in string:
+            return str(1)
+        if "two" in string:
+            return str(2)
+        if "three" in string:
+            return str(3)
+        if "four" in string:
+            return str(4)
+        if "five" in string:
+            return str(5)
+        if "six" in string:
+            return str(6)
+        if "seven" in string:
+            return str(7)
+        if "eight" in string:
+            return str(8)
+        if "nine" in string:
+            return str(9)
+        return " "
     
 
 

@@ -85,7 +85,7 @@
         "kind": 6,
         "importPath": "advent_of_code.2023.day1.Day1",
         "description": "advent_of_code.2023.day1.Day1",
-        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0\n        for line in self.input_content.splitlines():\n            #fins the first number in the string starting from the left\n            firstNum = None\n            secondNum = None\n            for i in range(len(line)):",
+        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0 \n        for line in self.input_content.splitlines():\n            leftNumber = \"-1\" \n            rightNumber = \"-1\" \n            l = len(line) - 1\n            for r in range(len(line)):",
         "detail": "advent_of_code.2023.day1.Day1",
         "documentation": {}
     },
