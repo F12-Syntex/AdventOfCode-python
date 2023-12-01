@@ -1,5 +1,4 @@
 import os
-
 class Day1:
     def __init__(self):
         self.input_content = None

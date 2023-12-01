@@ -47,6 +47,42 @@
     {
         "label": "Day1",
         "kind": 6,
+        "importPath": "advent_of_code.2015.day2.Day2",
+        "description": "advent_of_code.2015.day2.Day2",
+        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0\n        for line in self.input_content.splitlines():\n            dimentions = line.split(\"x\")\n            l = int(dimentions[0])\n            w = int(dimentions[1])\n            h = int(dimentions[2])",
+        "detail": "advent_of_code.2015.day2.Day2",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2015.day2.Day2",
+        "description": "advent_of_code.2015.day2.Day2",
+        "peekOfCode": "solver = Day1()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2015.day2.Day2",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2015.day2.Day2",
+        "description": "advent_of_code.2015.day2.Day2",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2015.day2.Day2",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2015.day2.Day2",
+        "description": "advent_of_code.2015.day2.Day2",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2015.day2.Day2",
+        "documentation": {}
+    },
+    {
+        "label": "Day1",
+        "kind": 6,
         "importPath": "advent_of_code.2023.day1.Day1",
         "description": "advent_of_code.2023.day1.Day1",
         "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        print(self.input_content)\n        return\n    def solve_part2(self):\n        pass\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day1\", \"input.txt\")",
