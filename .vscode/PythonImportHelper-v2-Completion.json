@@ -1,37 +1,5 @@
 [
     {
-        "label": "ABC",
-        "importPath": "abc",
-        "description": "abc",
-        "isExtraImport": true,
-        "detail": "abc",
-        "documentation": {}
-    },
-    {
-        "label": "abstractmethod",
-        "importPath": "abc",
-        "description": "abc",
-        "isExtraImport": true,
-        "detail": "abc",
-        "documentation": {}
-    },
-    {
-        "label": "ABC",
-        "importPath": "abc",
-        "description": "abc",
-        "isExtraImport": true,
-        "detail": "abc",
-        "documentation": {}
-    },
-    {
-        "label": "abstractmethod",
-        "importPath": "abc",
-        "description": "abc",
-        "isExtraImport": true,
-        "detail": "abc",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -41,38 +9,75 @@
         "documentation": {}
     },
     {
-        "label": "Year2016Day",
-        "importPath": "advent_of_code.solutions.Y2016.Year2016Day",
-        "description": "advent_of_code.solutions.Y2016.Year2016Day",
-        "isExtraImport": true,
-        "detail": "advent_of_code.solutions.Y2016.Year2016Day",
+        "label": "Day1",
+        "kind": 6,
+        "importPath": "advent_of_code.2015.day1.Day1",
+        "description": "advent_of_code.2015.day1.Day1",
+        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        floor = 0\n        for char in self.input_content:\n            if char == \"(\":\n                floor += 1\n            elif char == \")\":\n                floor -= 1",
+        "detail": "advent_of_code.2015.day1.Day1",
         "documentation": {}
     },
     {
-        "label": "Day",
-        "kind": 6,
-        "importPath": "advent_of_code.core.Day",
-        "description": "advent_of_code.core.Day",
-        "peekOfCode": "class Day(ABC):\n    @abstractmethod\n    def part1(self):\n        pass\n    @abstractmethod\n    def part2(self):\n        pass\n    @abstractmethod\n    def year(self) -> int:\n        pass",
-        "detail": "advent_of_code.core.Day",
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2015.day1.Day1",
+        "description": "advent_of_code.2015.day1.Day1",
+        "peekOfCode": "solver = Day1()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2015.day1.Day1",
         "documentation": {}
     },
     {
-        "label": "sol",
-        "kind": 6,
-        "importPath": "advent_of_code.solutions.Y2016.day1.sol",
-        "description": "advent_of_code.solutions.Y2016.day1.sol",
-        "peekOfCode": "class sol(Year2016Day):\n    def part1(self):\n        print(self.getInput())\n    def part2(self):\n      print(self.getInput())\nprint(sol().part1())",
-        "detail": "advent_of_code.solutions.Y2016.day1.sol",
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2015.day1.Day1",
+        "description": "advent_of_code.2015.day1.Day1",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2015.day1.Day1",
         "documentation": {}
     },
     {
-        "label": "Year2016Day",
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2015.day1.Day1",
+        "description": "advent_of_code.2015.day1.Day1",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2015.day1.Day1",
+        "documentation": {}
+    },
+    {
+        "label": "Day1",
         "kind": 6,
-        "importPath": "advent_of_code.solutions.Y2016.Year2016Day",
-        "description": "advent_of_code.solutions.Y2016.Year2016Day",
-        "peekOfCode": "class Year2016Day(ABC):\n    @abstractmethod\n    def part1(self):\n        pass\n    @abstractmethod\n    def part2(self):\n        pass\n    def year(self) -> int:\n        return 2016\n    def getInput(self):",
-        "detail": "advent_of_code.solutions.Y2016.Year2016Day",
+        "importPath": "advent_of_code.2023.day1.Day1",
+        "description": "advent_of_code.2023.day1.Day1",
+        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        print(self.input_content)\n        return\n    def solve_part2(self):\n        pass\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day1\", \"input.txt\")",
+        "detail": "advent_of_code.2023.day1.Day1",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day1.Day1",
+        "description": "advent_of_code.2023.day1.Day1",
+        "peekOfCode": "solver = Day1()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day1.Day1",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day1.Day1",
+        "description": "advent_of_code.2023.day1.Day1",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day1.Day1",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day1.Day1",
+        "description": "advent_of_code.2023.day1.Day1",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day1.Day1",
         "documentation": {}
     }
 ]
