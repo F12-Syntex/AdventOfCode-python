@@ -85,7 +85,7 @@
         "kind": 6,
         "importPath": "advent_of_code.2023.day1.Day1",
         "description": "advent_of_code.2023.day1.Day1",
-        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        print(self.input_content)\n        return\n    def solve_part2(self):\n        pass\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day1\", \"input.txt\")",
+        "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0\n        for line in self.input_content.splitlines():\n            #fins the first number in the string starting from the left\n            firstNum = None\n            secondNum = None\n            for i in range(len(line)):",
         "detail": "advent_of_code.2023.day1.Day1",
         "documentation": {}
     },
