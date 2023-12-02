@@ -6,6 +6,8 @@ class Day2:
 
     def solve_part1(self):
         sum = 0
+        colours = ["red", "green", "blue"]
+
         for line in self.input_content.splitlines():
             count = [0, 0, 0]
             id = int(line.split(":")[0].split(" ")[1])
@@ -18,20 +20,19 @@ class Day2:
                     curr = int(entry.split(" ")[0])
                     colour = entry.split(" ")[1]
 
-                    if colour == "red":
-                        count[0] = max(count[0], curr)
-                    elif colour == "green":
-                        count[1] = max(count[1], curr)
-                    elif colour == "blue":
-                        count[2] = max(count[2], curr)
+                    if colour in colours:
+                        index = colours.index(colour)
+                        count[index] = max(count[index], curr)
             
-            if(count[0] <= 12 and count[1] <= 13 and count[2] <= 14):
+            if count[0] <= 12 and count[1] <= 13 and count[2] <= 14:
                 sum += id
 
         return sum
 
     def solve_part2(self):
         sets = []
+        colours = ["red", "green", "blue"]
+        
         for line in self.input_content.splitlines():
             count = [0, 0, 0]
             id = int(line.split(":")[0].split(" ")[1])
@@ -44,12 +45,9 @@ class Day2:
                     curr = int(entry.split(" ")[0])
                     colour = entry.split(" ")[1]
 
-                    if colour == "red":
-                        count[0] = max(count[0], curr)
-                    elif colour == "green":
-                        count[1] = max(count[1], curr)
-                    elif colour == "blue":
-                        count[2] = max(count[2], curr)
+                    if colour in colours:
+                        index = colours.index(colour)
+                        count[index] = max(count[index], curr)
             
             sets.append(count)
         
@@ -58,9 +56,7 @@ class Day2:
             curr = sets[i]
             power = sets[i][0] * sets[i][1] * sets[i][2]
             sum += power
-
-
-
+            
         return sum
 
     def loadInputFiles(self):

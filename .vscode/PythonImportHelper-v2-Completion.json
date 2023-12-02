@@ -121,7 +121,7 @@
         "kind": 6,
         "importPath": "advent_of_code.2023.day2.Day2",
         "description": "advent_of_code.2023.day2.Day2",
-        "peekOfCode": "class Day2:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0\n        for line in self.input_content.splitlines():\n            count = [0, 0, 0]\n            id = int(line.split(\":\")[0].split(\" \")[1])\n            line = line.split(\":\")[1]\n            for games in line.split(\";\"):",
+        "peekOfCode": "class Day2:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0\n        colours = [\"red\", \"green\", \"blue\"]\n        for line in self.input_content.splitlines():\n            count = [0, 0, 0]\n            id = int(line.split(\":\")[0].split(\" \")[1])\n            line = line.split(\":\")[1]",
         "detail": "advent_of_code.2023.day2.Day2",
         "documentation": {}
     },
