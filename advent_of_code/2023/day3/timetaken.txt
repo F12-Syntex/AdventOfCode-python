@@ -1,0 +1,2 @@
+part1: 52 minutes
+part2: 44 minutes
