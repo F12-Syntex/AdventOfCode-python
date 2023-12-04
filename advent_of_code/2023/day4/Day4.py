@@ -7,19 +7,18 @@ class Day4:
     def solve_part1(self):
 
         score = 0
+        
         for line in self.input_content.splitlines():
             winning, cards = self.parseLine(line)
-
             winnings = len(set(winning).intersection(set(cards)))
-            
             if winnings == 0:
                 continue
-
             score += 2 ** (winnings - 1)
             
         return score
     
     def solve_part2(self):
+
         lines = self.input_content.splitlines()
         final_winnings = {}
 
@@ -29,13 +28,11 @@ class Day4:
         def explore_card(i):
             line = lines[i]
             winning, cards = self.parseLine(line)
-
             winnings = len(set(winning).intersection(set(cards)))
 
             for j in range(i+1, min(i+winnings+1, len(lines))):
                 final_winnings[j + 1] += 1 #j+1 is the card number
                 explore_card(j)
-
 
         for i in range(len(lines)):
             explore_card(i) 
@@ -44,32 +41,25 @@ class Day4:
 
         return values
 
-    def parseLine(self, line):
-        input = line.split(":")[1].strip()
-
-        winning = []
-        cards = []
-
-        winningCards = input.split("|")[0]
-        for card in winningCards.split():
-            winning.append(card.strip())
-
-        userCards = input.split("|")[1]
-        for card in userCards.split():
-            cards.append(card.strip())
-
-        return winning, cards
-
-    def convertCardsToList(self, cards):
-        cardsList = []
-        for card in cards.split():
-            cardsList.append(card.strip())
-        return cardsList
-
     def loadInputFiles(self):
         inputPath = os.path.join(os.getcwd(), "advent_of_code", "2023", "day4", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
+
+    
+    def parseLine(self, line):
+        input = line.split(":")[1].strip()
+
+        winning, cards = [], []
+        parts = input.split("|")
+
+        for card in parts[0].split():
+            winning.append(card.strip())
+
+        for card in parts[1].split():
+            cards.append(card.strip())
+
+        return winning, cards
 
 solver = Day4()
 solver.loadInputFiles()
