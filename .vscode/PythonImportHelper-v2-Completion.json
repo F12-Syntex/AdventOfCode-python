@@ -229,7 +229,7 @@
         "kind": 6,
         "importPath": "advent_of_code.2023.day4.Day4",
         "description": "advent_of_code.2023.day4.Day4",
-        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        score = 0\n        for line in self.input_content.splitlines():\n            input = line.split(\":\")[1].strip()\n            winning = self.convertCardsToList(input.split(\"|\")[0])\n            cards = self.convertCardsToList(input.split(\"|\")[1])\n            #count how many cards are in the winning set",
+        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        score = 0\n        for line in self.input_content.splitlines():\n            winning, cards = self.parseLine(line)\n            winnings = len(set(winning).intersection(set(cards)))\n            if winnings == 0:\n                continue",
         "detail": "advent_of_code.2023.day4.Day4",
         "documentation": {}
     },

@@ -8,61 +8,57 @@ class Day4:
 
         score = 0
         for line in self.input_content.splitlines():
-            input = line.split(":")[1].strip()
-            winning = self.convertCardsToList(input.split("|")[0])
-            cards = self.convertCardsToList(input.split("|")[1])
+            winning, cards = self.parseLine(line)
 
-            #count how many cards are in the winning set
-            winnings = 0
-            for card in cards:
-                if card in winning:
-                    if winnings == 0:
-                        winnings = 1
-                    else:
-                        winnings *= 2
+            winnings = len(set(winning).intersection(set(cards)))
+            
+            if winnings == 0:
+                continue
 
-            score += winnings
-
+            score += 2 ** (winnings - 1)
+            
         return score
     
     def solve_part2(self):
-        score = 0
-        
         lines = self.input_content.splitlines()
         final_winnings = {}
 
         for i in range(len(lines)):
             final_winnings[i+1] = 1
         
-        def explore_card(line, i, tab=1):
+        def explore_card(i):
+            line = lines[i]
+            winning, cards = self.parseLine(line)
 
-            cardNumber = int(line.split(":")[0].split()[1].strip())
-            input = line.split(":")[1].strip()
-            winning = self.convertCardsToList(input.split("|")[0])
-            cards = self.convertCardsToList(input.split("|")[1])
-            woncards = []
-
-            winnings = 0
-            for card in cards:
-                if card in winning:
-                    winnings += 1
-
-            space = ("   " * tab) + " -"
-            print(space, lines[i], " - ", cardNumber, " - ", winnings)
+            winnings = len(set(winning).intersection(set(cards)))
 
             for j in range(i+1, min(i+winnings+1, len(lines))):
-                cardN = int(lines[j].split(":")[0].split()[1].strip())
-                final_winnings[cardN] = final_winnings[cardN] + 1
-                explore_card(lines[j], j, tab+1)
+                final_winnings[j + 1] += 1 #j+1 is the card number
+                explore_card(j)
 
 
         for i in range(len(lines)):
-            line = lines[i]
-            explore_card(line, i) 
+            explore_card(i) 
         
         values = sum(list(final_winnings.values()))
 
         return values
+
+    def parseLine(self, line):
+        input = line.split(":")[1].strip()
+
+        winning = []
+        cards = []
+
+        winningCards = input.split("|")[0]
+        for card in winningCards.split():
+            winning.append(card.strip())
+
+        userCards = input.split("|")[1]
+        for card in userCards.split():
+            cards.append(card.strip())
+
+        return winning, cards
 
     def convertCardsToList(self, cards):
         cardsList = []
