@@ -81,6 +81,42 @@
         "documentation": {}
     },
     {
+        "label": "Day4",
+        "kind": 6,
+        "importPath": "advent_of_code.2023.boilerplate.Day4",
+        "description": "advent_of_code.2023.boilerplate.Day4",
+        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day4\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
+        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.boilerplate.Day4",
+        "description": "advent_of_code.2023.boilerplate.Day4",
+        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.boilerplate.Day4",
+        "description": "advent_of_code.2023.boilerplate.Day4",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.boilerplate.Day4",
+        "description": "advent_of_code.2023.boilerplate.Day4",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "documentation": {}
+    },
+    {
         "label": "Day1",
         "kind": 6,
         "importPath": "advent_of_code.2023.day1.Day1",
@@ -153,11 +189,11 @@
         "documentation": {}
     },
     {
-        "label": "Day2",
+        "label": "Day3",
         "kind": 6,
         "importPath": "advent_of_code.2023.day3.Day3",
         "description": "advent_of_code.2023.day3.Day3",
-        "peekOfCode": "class Day2:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        grid = []\n        for line in self.input_content.splitlines():\n            grid.append(list(line))\n        x = 0\n        y = 0\n        foundNumber = False",
+        "peekOfCode": "class Day3:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        grid = []\n        for line in self.input_content.splitlines():\n            grid.append(list(line))\n        x = 0\n        y = 0\n        foundNumber = False",
         "detail": "advent_of_code.2023.day3.Day3",
         "documentation": {}
     },
@@ -166,7 +202,7 @@
         "kind": 5,
         "importPath": "advent_of_code.2023.day3.Day3",
         "description": "advent_of_code.2023.day3.Day3",
-        "peekOfCode": "solver = Day2()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day3()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day3.Day3",
         "documentation": {}
     },
@@ -186,6 +222,42 @@
         "description": "advent_of_code.2023.day3.Day3",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day3.Day3",
+        "documentation": {}
+    },
+    {
+        "label": "Day4",
+        "kind": 6,
+        "importPath": "advent_of_code.2023.day4.Day4",
+        "description": "advent_of_code.2023.day4.Day4",
+        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        score = 0\n        for line in self.input_content.splitlines():\n            input = line.split(\":\")[1].strip()\n            winning = self.convertCardsToList(input.split(\"|\")[0])\n            cards = self.convertCardsToList(input.split(\"|\")[1])\n            #count how many cards are in the winning set",
+        "detail": "advent_of_code.2023.day4.Day4",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day4.Day4",
+        "description": "advent_of_code.2023.day4.Day4",
+        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day4.Day4",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day4.Day4",
+        "description": "advent_of_code.2023.day4.Day4",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day4.Day4",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day4.Day4",
+        "description": "advent_of_code.2023.day4.Day4",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day4.Day4",
         "documentation": {}
     }
 ]
