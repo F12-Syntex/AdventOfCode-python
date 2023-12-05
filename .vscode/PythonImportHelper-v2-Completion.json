@@ -295,5 +295,41 @@
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day5.Day5",
         "documentation": {}
+    },
+    {
+        "label": "Day4",
+        "kind": 6,
+        "importPath": "advent_of_code.2023.day6.Day6",
+        "description": "advent_of_code.2023.day6.Day6",
+        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day6\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
+        "detail": "advent_of_code.2023.day6.Day6",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day6.Day6",
+        "description": "advent_of_code.2023.day6.Day6",
+        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day6.Day6",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day6.Day6",
+        "description": "advent_of_code.2023.day6.Day6",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day6.Day6",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day6.Day6",
+        "description": "advent_of_code.2023.day6.Day6",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day6.Day6",
+        "documentation": {}
     }
 ]
