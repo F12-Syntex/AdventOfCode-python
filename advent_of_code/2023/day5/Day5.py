@@ -1,6 +1,6 @@
 import os
 
-class Day4:
+class Day5:
     def __init__(self):
         self.input_content = None
 
@@ -132,7 +132,7 @@ class Day4:
         with open(inputPath, "r") as f:
             self.input_content = f.read()
 
-solver = Day4()
+solver = Day5()
 solver.loadInputFiles()
 part1_result = solver.solve_part1()
 part2_result = solver.solve_part2()

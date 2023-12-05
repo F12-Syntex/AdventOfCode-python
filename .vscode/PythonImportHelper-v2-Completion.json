@@ -261,11 +261,11 @@
         "documentation": {}
     },
     {
-        "label": "Day4",
+        "label": "Day5",
         "kind": 6,
         "importPath": "advent_of_code.2023.day5.Day5",
         "description": "advent_of_code.2023.day5.Day5",
-        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        seeds = self.parseContent()[0]\n        minLocation = float(\"inf\")\n        for seed in seeds:\n            minLocation = min(minLocation, self.computeSeed(seed))\n        return minLocation\n    def computeSeed(self, seed):",
+        "peekOfCode": "class Day5:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        seeds = self.parseContent()[0]\n        minLocation = float(\"inf\")\n        for seed in seeds:\n            minLocation = min(minLocation, self.computeSeed(seed))\n        return minLocation\n    def computeSeed(self, seed):",
         "detail": "advent_of_code.2023.day5.Day5",
         "documentation": {}
     },
@@ -274,7 +274,7 @@
         "kind": 5,
         "importPath": "advent_of_code.2023.day5.Day5",
         "description": "advent_of_code.2023.day5.Day5",
-        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day5()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day5.Day5",
         "documentation": {}
     },
@@ -297,11 +297,11 @@
         "documentation": {}
     },
     {
-        "label": "Day4",
+        "label": "Day6",
         "kind": 6,
         "importPath": "advent_of_code.2023.day6.Day6",
         "description": "advent_of_code.2023.day6.Day6",
-        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day6\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
+        "peekOfCode": "class Day6:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day6\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
         "detail": "advent_of_code.2023.day6.Day6",
         "documentation": {}
     },
@@ -310,7 +310,7 @@
         "kind": 5,
         "importPath": "advent_of_code.2023.day6.Day6",
         "description": "advent_of_code.2023.day6.Day6",
-        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day6()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day6.Day6",
         "documentation": {}
     },
