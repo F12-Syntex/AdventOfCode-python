@@ -19,7 +19,7 @@ class Day6:
             if total == 0:
                 total = 1
                 
-            total *= wins
+            total = wins if total == 0 else total*wins 
         
         return total
         
@@ -34,10 +34,7 @@ class Day6:
             if distance > race[1]:
                 wins+=1
                 
-        if total == 0:
-            total = 1
-            
-        total *= wins
+        total = wins if total == 0 else total*wins 
         
         return total
     
