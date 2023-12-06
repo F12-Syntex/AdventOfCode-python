@@ -5,13 +5,57 @@ class Day6:
         self.input_content = None
 
     def solve_part1(self):
-        return 0
-    
+        races = self.parseInput()
+        total = 0
+
+        for race in races:
+            wins = 0
+            for speed in range(race[0] + 1):
+                seconds = (race[0] - speed)
+                distance = seconds * speed
+                if distance > race[1]:
+                    wins+=1
+                    
+            if total == 0:
+                total = 1
+                
+            total *= wins
+        
+        return total
+        
     def solve_part2(self):
-        return self.input_content
+        race = self.parseInput2()
+        total = 0
+        wins = 0
+        
+        for speed in range(race[0] + 1):
+            seconds = (race[0] - speed)
+            distance = seconds * speed
+            if distance > race[1]:
+                wins+=1
+                
+        if total == 0:
+            total = 1
+            
+        total *= wins
+        
+        return total
+    
+    def parseInput(self):
+        time = list(map(int, self.input_content.split("\n")[0].split(":")[1].split()))
+        distance = list(map(int, self.input_content.split("\n")[1].split(":")[1].split()))
+        paired_values = [(t, d) for t, d in zip(time, distance)]
+        
+        return paired_values
+    
+    def parseInput2(self):
+        time = int(self.input_content.split("\n")[0].split(":")[1].replace(" ", ""))
+        distance = int(self.input_content.split("\n")[1].split(":")[1].replace(" ", ""))
+        
+        return time, distance
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "advent_of_code", "2023", "day6", "test.txt")
+        inputPath = os.path.join(os.getcwd(), "advent_of_code", "2023", "day6", "input.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
 

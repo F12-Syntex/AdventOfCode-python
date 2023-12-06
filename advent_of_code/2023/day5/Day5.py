@@ -118,8 +118,6 @@ class Day5:
     
         humidityToLocation = self.input_content.split("humidity-to-location map:")[1].split("\n")
         humidityToLocation = [self.toIntArr(item.split(" ")) for item in humidityToLocation if item]      
-        
-        
 
         return seeds, seedsToSoil, seedsToFertilizer, fertilizerToWater, waterToLight, lightToTempreture, temperatureToHumidity, humidityToLocation
     
