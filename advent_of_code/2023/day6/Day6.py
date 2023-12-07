@@ -1,4 +1,5 @@
 import os
+import re
 
 class Day6:
     def __init__(self):
@@ -16,9 +17,6 @@ class Day6:
                 if distance > race[1]:
                     wins+=1
                     
-            if total == 0:
-                total = 1
-                
             total = wins if total == 0 else total*wins 
         
         return total

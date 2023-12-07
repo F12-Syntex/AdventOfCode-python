@@ -1,2 +1,2 @@
-part1: 0 minutes
-part2: 0 minutes
+part1: 02:20:00
+part2: 00:55:00

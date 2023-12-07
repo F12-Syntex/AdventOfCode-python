@@ -9,6 +9,23 @@
         "documentation": {}
     },
     {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
         "label": "Day1",
         "kind": 6,
         "importPath": "advent_of_code.2015.day1.Day1",
@@ -81,39 +98,39 @@
         "documentation": {}
     },
     {
-        "label": "Day4",
+        "label": "Day",
         "kind": 6,
-        "importPath": "advent_of_code.2023.boilerplate.Day4",
-        "description": "advent_of_code.2023.boilerplate.Day4",
-        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day4\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
-        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "importPath": "advent_of_code.2023.boilerplate.Day",
+        "description": "advent_of_code.2023.boilerplate.Day",
+        "peekOfCode": "class Day:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "detail": "advent_of_code.2023.boilerplate.Day",
         "documentation": {}
     },
     {
         "label": "solver",
         "kind": 5,
-        "importPath": "advent_of_code.2023.boilerplate.Day4",
-        "description": "advent_of_code.2023.boilerplate.Day4",
-        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "importPath": "advent_of_code.2023.boilerplate.Day",
+        "description": "advent_of_code.2023.boilerplate.Day",
+        "peekOfCode": "solver = Day()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.boilerplate.Day",
         "documentation": {}
     },
     {
         "label": "part1_result",
         "kind": 5,
-        "importPath": "advent_of_code.2023.boilerplate.Day4",
-        "description": "advent_of_code.2023.boilerplate.Day4",
+        "importPath": "advent_of_code.2023.boilerplate.Day",
+        "description": "advent_of_code.2023.boilerplate.Day",
         "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "detail": "advent_of_code.2023.boilerplate.Day",
         "documentation": {}
     },
     {
         "label": "part2_result",
         "kind": 5,
-        "importPath": "advent_of_code.2023.boilerplate.Day4",
-        "description": "advent_of_code.2023.boilerplate.Day4",
+        "importPath": "advent_of_code.2023.boilerplate.Day",
+        "description": "advent_of_code.2023.boilerplate.Day",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "advent_of_code.2023.boilerplate.Day4",
+        "detail": "advent_of_code.2023.boilerplate.Day",
         "documentation": {}
     },
     {
@@ -333,39 +350,39 @@
         "documentation": {}
     },
     {
-        "label": "Day6",
+        "label": "Day7",
         "kind": 6,
-        "importPath": "advent_of_code.2023.day7.Day6",
-        "description": "advent_of_code.2023.day7.Day6",
-        "peekOfCode": "class Day6:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day6\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
-        "detail": "advent_of_code.2023.day7.Day6",
+        "importPath": "advent_of_code.2023.day7.Day7",
+        "description": "advent_of_code.2023.day7.Day7",
+        "peekOfCode": "class Day7:\n    def __init__(self):\n        self.input_content = None\n    def solve(self, sortFunc):\n        cards = []\n        for line in self.input_content.splitlines():\n            data = line.split(\" \")\n            cards.append((data[0], data[1]))\n        cards = sorted(cards, key=lambda c:sortFunc(c[0]))\n        sum = 0",
+        "detail": "advent_of_code.2023.day7.Day7",
         "documentation": {}
     },
     {
         "label": "solver",
         "kind": 5,
-        "importPath": "advent_of_code.2023.day7.Day6",
-        "description": "advent_of_code.2023.day7.Day6",
-        "peekOfCode": "solver = Day6()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "advent_of_code.2023.day7.Day6",
+        "importPath": "advent_of_code.2023.day7.Day7",
+        "description": "advent_of_code.2023.day7.Day7",
+        "peekOfCode": "solver = Day7()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day7.Day7",
         "documentation": {}
     },
     {
         "label": "part1_result",
         "kind": 5,
-        "importPath": "advent_of_code.2023.day7.Day6",
-        "description": "advent_of_code.2023.day7.Day6",
+        "importPath": "advent_of_code.2023.day7.Day7",
+        "description": "advent_of_code.2023.day7.Day7",
         "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "advent_of_code.2023.day7.Day6",
+        "detail": "advent_of_code.2023.day7.Day7",
         "documentation": {}
     },
     {
         "label": "part2_result",
         "kind": 5,
-        "importPath": "advent_of_code.2023.day7.Day6",
-        "description": "advent_of_code.2023.day7.Day6",
+        "importPath": "advent_of_code.2023.day7.Day7",
+        "description": "advent_of_code.2023.day7.Day7",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "advent_of_code.2023.day7.Day6",
+        "detail": "advent_of_code.2023.day7.Day7",
         "documentation": {}
     }
 ]
