@@ -26,6 +26,14 @@
         "documentation": {}
     },
     {
+        "label": "gcd",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
         "label": "Day1",
         "kind": 6,
         "importPath": "advent_of_code.2015.day1.Day1",
@@ -383,6 +391,42 @@
         "description": "advent_of_code.2023.day7.Day7",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day7.Day7",
+        "documentation": {}
+    },
+    {
+        "label": "Day8",
+        "kind": 6,
+        "importPath": "advent_of_code.2023.day8.Day8",
+        "description": "advent_of_code.2023.day8.Day8",
+        "peekOfCode": "class Day8:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        movements = self.input_content.split(\"\\n\")[0].strip()\n        movements = list(movements)\n        paths = self.input_content.split(\"\\n\")[2:]\n        mapping = {}\n        start = 'AAA'\n        end = 'ZZZ'",
+        "detail": "advent_of_code.2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day8.Day8",
+        "description": "advent_of_code.2023.day8.Day8",
+        "peekOfCode": "solver = Day8()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day8.Day8",
+        "description": "advent_of_code.2023.day8.Day8",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "advent_of_code.2023.day8.Day8",
+        "description": "advent_of_code.2023.day8.Day8",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "advent_of_code.2023.day8.Day8",
         "documentation": {}
     }
 ]
