@@ -434,7 +434,7 @@
         "kind": 6,
         "importPath": "advent_of_code.2023.day9.Day9",
         "description": "advent_of_code.2023.day9.Day9",
-        "peekOfCode": "class Day9:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        sum = 0\n        for line in self.input_content.splitlines():\n            line = list(map(int, line.split(\" \")))\n            values = [line]\n            #whlie line is not all zeroes\n            while not all(x == 0 for x in line):    ",
+        "peekOfCode": "class Day9:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return self.solve(True)\n    def solve_part2(self):\n        return self.solve(False)\n    def solve(self, part1): \n        sum = 0\n        for line in self.input_content.splitlines():",
         "detail": "advent_of_code.2023.day9.Day9",
         "documentation": {}
     },

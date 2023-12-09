@@ -5,40 +5,12 @@ class Day9:
         self.input_content = None
 
     def solve_part1(self):
-        
-        sum = 0
-        
-        for line in self.input_content.splitlines():
-            
-            line = list(map(int, line.split(" ")))
-            values = [line]
-            
-            #whlie line is not all zeroes
-            while not all(x == 0 for x in line):    
-                tmp = []
-                
-                for i in range(len(line) - 1):
-                    diff = line[i+1] - line[i]
-                    tmp.append(diff)
-                
-                values.append(tmp)
-                line = tmp
-            
-            for i in range(len(values) - 2, -1, -1):
-                curr_arr = values[i]
-                bottom_arr = values[i+1]     
-
-                currValue = curr_arr[-1]
-                increment = bottom_arr[-1]
-                
-                curr_arr.append(currValue + increment)
-            
-            sum += values[0][-1]            
-        
-        return sum
+        return self.solve(True)
     
     def solve_part2(self):
-        
+        return self.solve(False)
+    
+    def solve(self, part1): 
         sum = 0
         
         for line in self.input_content.splitlines():
@@ -46,26 +18,19 @@ class Day9:
             line = list(map(int, line.split(" ")))
             values = [line]
             
-            while not all(x == 0 for x in line):    
-                tmp = []
-                
-                for i in range(len(line) - 1):
-                    diff = line[i+1] - line[i]
-                    tmp.append(diff)
-                
-                values.append(tmp)
-                line = tmp
+            while any(line := [j - i for i, j in zip(line, line[1:])]):
+                values.append(line)
             
+            increment = 0
             for i in range(len(values) - 2, -1, -1):
-                curr_arr = values[i]
-                bottom_arr = values[i+1]     
+                if part1:
+                    values[i].append(values[i][-1] + values[i+1][-1])
+                    increment = values[i][-1]
+                else:
+                    values[i].insert(0, values[i][0] - values[i+1][0])
+                    increment = values[i][0]
 
-                currValue = curr_arr[0]
-                increment = bottom_arr[0]
-
-                curr_arr.insert(0, currValue - increment)
-                
-            sum += values[0][0]            
+            sum += increment        
         
         return sum
 
