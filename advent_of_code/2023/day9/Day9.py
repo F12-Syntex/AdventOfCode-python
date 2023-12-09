@@ -14,24 +14,18 @@ class Day9:
         sum = 0
         
         for line in self.input_content.splitlines():
-            
-            line = list(map(int, line.split(" ")))
-            values = [line]
+            values = [line := [int(x) for x in line.split(" ")]]
             
             while any(line := [j - i for i, j in zip(line, line[1:])]):
                 values.append(line)
             
             increment = 0
             for i in range(len(values) - 2, -1, -1):
-                if part1:
-                    values[i].append(values[i][-1] + values[i+1][-1])
-                    increment = values[i][-1]
-                else:
-                    values[i].insert(0, values[i][0] - values[i+1][0])
-                    increment = values[i][0]
-
-            sum += increment        
-        
+                index = -1 if part1 else 0
+                increment = values[i][index] + (-values[i+1][index] if not part1 else values[i+1][index])
+                values[i].append(increment) if part1 else values[i].insert(0, increment)
+            sum += increment
+ 
         return sum
 
     def loadInputFiles(self):
