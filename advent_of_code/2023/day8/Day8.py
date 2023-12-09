@@ -1,5 +1,6 @@
 import os
 from math import gcd
+import re
 
 class Day8:
     def __init__(self):
@@ -28,6 +29,10 @@ class Day8:
             
             mapping[src] = (l, r)
             
+    
+            print(src, l, r)
+            exit()
+            
             
         curr = start
         moves = 0
@@ -44,7 +49,6 @@ class Day8:
             moves += 1
             
         return moves
-    
     def solve_part2(self):
         
         movements = self.input_content.split("\n")[0].strip()
