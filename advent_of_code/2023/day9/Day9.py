@@ -3,13 +3,7 @@ import os
 class Day9:
     def __init__(self):
         self.input_content = None
-
-    def solve_part1(self):
-        return self.solve(True)
-    
-    def solve_part2(self):
-        return self.solve(False)
-    
+        
     def solve(self, part1): 
         sum = 0
         
@@ -35,8 +29,8 @@ class Day9:
 
 solver = Day9()
 solver.loadInputFiles()
-part1_result = solver.solve_part1()
-part2_result = solver.solve_part2()
+part1_result = solver.solve(True)
+part2_result = solver.solve(False)
 
 print("Solution to Part 1:", part1_result)
 print("Solution to Part 2:", part2_result)

@@ -434,7 +434,7 @@
         "kind": 6,
         "importPath": "advent_of_code.2023.day9.Day9",
         "description": "advent_of_code.2023.day9.Day9",
-        "peekOfCode": "class Day9:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return self.solve(True)\n    def solve_part2(self):\n        return self.solve(False)\n    def solve(self, part1): \n        sum = 0\n        for line in self.input_content.splitlines():",
+        "peekOfCode": "class Day9:\n    def __init__(self):\n        self.input_content = None\n    def solve(self, part1): \n        sum = 0\n        for line in self.input_content.splitlines():\n            values = [line := [int(x) for x in line.split(\" \")]]\n            while any(line := [j - i for i, j in zip(line, line[1:])]):\n                values.append(line)\n            increment = 0",
         "detail": "advent_of_code.2023.day9.Day9",
         "documentation": {}
     },
@@ -443,7 +443,7 @@
         "kind": 5,
         "importPath": "advent_of_code.2023.day9.Day9",
         "description": "advent_of_code.2023.day9.Day9",
-        "peekOfCode": "solver = Day9()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day9()\nsolver.loadInputFiles()\npart1_result = solver.solve(True)\npart2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day9.Day9",
         "documentation": {}
     },
@@ -452,7 +452,7 @@
         "kind": 5,
         "importPath": "advent_of_code.2023.day9.Day9",
         "description": "advent_of_code.2023.day9.Day9",
-        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part1_result = solver.solve(True)\npart2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day9.Day9",
         "documentation": {}
     },
@@ -461,7 +461,7 @@
         "kind": 5,
         "importPath": "advent_of_code.2023.day9.Day9",
         "description": "advent_of_code.2023.day9.Day9",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "advent_of_code.2023.day9.Day9",
         "documentation": {}
     }
