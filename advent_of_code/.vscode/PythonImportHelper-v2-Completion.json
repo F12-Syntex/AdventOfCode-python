@@ -9,20 +9,36 @@
         "documentation": {}
     },
     {
-        "label": "requests",
-        "kind": 6,
+        "label": "deque",
+        "importPath": "collections",
+        "description": "collections",
         "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
+        "detail": "collections",
         "documentation": {}
     },
     {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
         "isExtraImport": true,
-        "detail": "bs4",
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "gcd",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
         "documentation": {}
     },
     {
@@ -98,39 +114,39 @@
         "documentation": {}
     },
     {
-        "label": "Day4",
+        "label": "Day",
         "kind": 6,
-        "importPath": "2023.boilerplate.Day4",
-        "description": "2023.boilerplate.Day4",
-        "peekOfCode": "class Day4:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day4\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
-        "detail": "2023.boilerplate.Day4",
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
+        "peekOfCode": "class Day:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
     {
         "label": "solver",
         "kind": 5,
-        "importPath": "2023.boilerplate.Day4",
-        "description": "2023.boilerplate.Day4",
-        "peekOfCode": "solver = Day4()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2023.boilerplate.Day4",
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
+        "peekOfCode": "solver = Day()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
     {
         "label": "part1_result",
         "kind": 5,
-        "importPath": "2023.boilerplate.Day4",
-        "description": "2023.boilerplate.Day4",
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
         "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2023.boilerplate.Day4",
+        "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
     {
         "label": "part2_result",
         "kind": 5,
-        "importPath": "2023.boilerplate.Day4",
-        "description": "2023.boilerplate.Day4",
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2023.boilerplate.Day4",
+        "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
     {
@@ -167,6 +183,42 @@
         "description": "2023.day1.Day1",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day1.Day1",
+        "documentation": {}
+    },
+    {
+        "label": "Day10",
+        "kind": 6,
+        "importPath": "2023.day10.Day10",
+        "description": "2023.day10.Day10",
+        "peekOfCode": "class Day10:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        # self.printGrid()\n        visited = set()\n        queue = deque([(self.findStartPosition(), 0)]) \n        max_distance = 0\n        while queue:\n            node, distance = queue.popleft()",
+        "detail": "2023.day10.Day10",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day10.Day10",
+        "description": "2023.day10.Day10",
+        "peekOfCode": "solver = Day10()\nsolver.loadInputFiles()\nsolver.loadGrid()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day10.Day10",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day10.Day10",
+        "description": "2023.day10.Day10",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day10.Day10",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day10.Day10",
+        "description": "2023.day10.Day10",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day10.Day10",
         "documentation": {}
     },
     {
@@ -318,7 +370,7 @@
         "kind": 6,
         "importPath": "2023.day6.Day6",
         "description": "2023.day6.Day6",
-        "peekOfCode": "class Day6:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return 0\n    def solve_part2(self):\n        return self.input_content\n    def loadInputFiles(self):\n        inputPath = os.path.join(os.getcwd(), \"advent_of_code\", \"2023\", \"day6\", \"test.txt\")\n        with open(inputPath, \"r\") as f:",
+        "peekOfCode": "class Day6:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        races = self.parseInput()\n        total = 0\n        for race in races:\n            wins = 0\n            for speed in range(race[0] + 1):\n                seconds = (race[0] - speed)",
         "detail": "2023.day6.Day6",
         "documentation": {}
     },
@@ -350,21 +402,111 @@
         "documentation": {}
     },
     {
-        "label": "COOKIE",
-        "kind": 5,
-        "importPath": "2023.day6.InputGrabber",
-        "description": "2023.day6.InputGrabber",
-        "peekOfCode": "COOKIE = \"session=53616c7465645f5fe83d8ed9b2ad3e48ae700d3cf82e25eb48ad29e4212b43f3b2795412c79b0ae71a55158f58b00fa0ff978946f04b6bbcfc02d5f0a9653ffa\"\nURL = \"https://adventofcode.com/2023/day/5\"\t\n#using the cookie, grab the html of the url\nimport requests\nimport os\nfrom bs4 import BeautifulSoup\nprint(grabInput())",
-        "detail": "2023.day6.InputGrabber",
+        "label": "Day7",
+        "kind": 6,
+        "importPath": "2023.day7.Day7",
+        "description": "2023.day7.Day7",
+        "peekOfCode": "class Day7:\n    def __init__(self):\n        self.input_content = None\n    def solve(self, sortFunc):\n        cards = []\n        for line in self.input_content.splitlines():\n            data = line.split(\" \")\n            cards.append((data[0], data[1]))\n        cards = sorted(cards, key=lambda c:sortFunc(c[0]))\n        sum = 0",
+        "detail": "2023.day7.Day7",
         "documentation": {}
     },
     {
-        "label": "URL",
+        "label": "solver",
         "kind": 5,
-        "importPath": "2023.day6.InputGrabber",
-        "description": "2023.day6.InputGrabber",
-        "peekOfCode": "URL = \"https://adventofcode.com/2023/day/5\"\t\n#using the cookie, grab the html of the url\nimport requests\nimport os\nfrom bs4 import BeautifulSoup\nprint(grabInput())",
-        "detail": "2023.day6.InputGrabber",
+        "importPath": "2023.day7.Day7",
+        "description": "2023.day7.Day7",
+        "peekOfCode": "solver = Day7()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day7.Day7",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day7.Day7",
+        "description": "2023.day7.Day7",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day7.Day7",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day7.Day7",
+        "description": "2023.day7.Day7",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day7.Day7",
+        "documentation": {}
+    },
+    {
+        "label": "Day8",
+        "kind": 6,
+        "importPath": "2023.day8.Day8",
+        "description": "2023.day8.Day8",
+        "peekOfCode": "class Day8:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        movements = self.input_content.split(\"\\n\")[0].strip()\n        movements = list(movements)\n        paths = self.input_content.split(\"\\n\")[2:]\n        mapping = {}\n        start = 'AAA'\n        end = 'ZZZ'",
+        "detail": "2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day8.Day8",
+        "description": "2023.day8.Day8",
+        "peekOfCode": "solver = Day8()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day8.Day8",
+        "description": "2023.day8.Day8",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day8.Day8",
+        "description": "2023.day8.Day8",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day8.Day8",
+        "documentation": {}
+    },
+    {
+        "label": "Day9",
+        "kind": 6,
+        "importPath": "2023.day9.Day9",
+        "description": "2023.day9.Day9",
+        "peekOfCode": "class Day9:\n    def __init__(self):\n        self.input_content = None\n    def solve(self, part1): \n        sum = 0\n        for line in self.input_content.splitlines():\n            values = [line := [int(x) for x in line.split(\" \")]]\n            while any(line := [j - i for i, j in zip(line, line[1:])]):\n                values.append(line)\n            increment = 0",
+        "detail": "2023.day9.Day9",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day9.Day9",
+        "description": "2023.day9.Day9",
+        "peekOfCode": "solver = Day9()\nsolver.loadInputFiles()\npart1_result = solver.solve(True)\npart2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day9.Day9",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day9.Day9",
+        "description": "2023.day9.Day9",
+        "peekOfCode": "part1_result = solver.solve(True)\npart2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day9.Day9",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day9.Day9",
+        "description": "2023.day9.Day9",
+        "peekOfCode": "part2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day9.Day9",
         "documentation": {}
     }
 ]
