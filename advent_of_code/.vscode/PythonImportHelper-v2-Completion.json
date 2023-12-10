@@ -222,6 +222,42 @@
         "documentation": {}
     },
     {
+        "label": "Day11",
+        "kind": 6,
+        "importPath": "2023.day11.Day11",
+        "description": "2023.day11.Day11",
+        "peekOfCode": "class Day11:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "detail": "2023.day11.Day11",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day11.Day11",
+        "description": "2023.day11.Day11",
+        "peekOfCode": "solver = Day11()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day11.Day11",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day11.Day11",
+        "description": "2023.day11.Day11",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day11.Day11",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day11.Day11",
+        "description": "2023.day11.Day11",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day11.Day11",
+        "documentation": {}
+    },
+    {
         "label": "Day2",
         "kind": 6,
         "importPath": "2023.day2.Day2",
