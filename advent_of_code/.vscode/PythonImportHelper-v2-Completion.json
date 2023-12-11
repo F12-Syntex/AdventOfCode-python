@@ -17,11 +17,28 @@
         "documentation": {}
     },
     {
+        "label": "deque",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
         "label": "Counter",
         "importPath": "collections",
         "description": "collections",
         "isExtraImport": true,
         "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "heapq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "heapq",
+        "description": "heapq",
+        "detail": "heapq",
         "documentation": {}
     },
     {
@@ -226,7 +243,7 @@
         "kind": 6,
         "importPath": "2023.day11.Day11",
         "description": "2023.day11.Day11",
-        "peekOfCode": "class Day11:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "peekOfCode": "class Day11:\n    def __init__(self):\n        self.input_content = None\n        self.grid = []\n    def solve_part1(self):\n        self.makeGrid()\n        galaxies = self.findGalaxies()\n        pairs = set()  \n        for i, galaxy in enumerate(galaxies):\n            for other_galaxy in galaxies[i+1:]: ",
         "detail": "2023.day11.Day11",
         "documentation": {}
     },
@@ -543,6 +560,33 @@
         "description": "2023.day9.Day9",
         "peekOfCode": "part2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day9.Day9",
+        "documentation": {}
+    },
+    {
+        "label": "timeCalc",
+        "kind": 2,
+        "importPath": "2023.helper.timeCalc",
+        "description": "2023.helper.timeCalc",
+        "peekOfCode": "def timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1\n    t3 = str(t3//3600) + ':' + str(t3%3600//60) + ':' + str(t3%60)\n    return t3",
+        "detail": "2023.helper.timeCalc",
+        "documentation": {}
+    },
+    {
+        "label": "t1",
+        "kind": 5,
+        "importPath": "2023.helper.timeCalc",
+        "description": "2023.helper.timeCalc",
+        "peekOfCode": "t1 = '01:01:57'\nt2 = '01:25:34'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1",
+        "detail": "2023.helper.timeCalc",
+        "documentation": {}
+    },
+    {
+        "label": "t2",
+        "kind": 5,
+        "importPath": "2023.helper.timeCalc",
+        "description": "2023.helper.timeCalc",
+        "peekOfCode": "t2 = '01:25:34'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1\n    t3 = str(t3//3600) + ':' + str(t3%3600//60) + ':' + str(t3%60)",
+        "detail": "2023.helper.timeCalc",
         "documentation": {}
     }
 ]
