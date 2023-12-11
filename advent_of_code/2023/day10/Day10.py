@@ -7,8 +7,6 @@ class Day10:
         
         
     def solve_part1(self):
-        # self.printGrid()
-        
         visited = set()
         queue = deque([(self.findStartPosition(), 0)]) 
         max_distance = 0
@@ -26,8 +24,128 @@ class Day10:
         return max_distance
     
     def solve_part2(self):
-            pass
+                    
+        def betterPrint():
+            for i in range(len(self.grid)):
+                line = ""
+                for j in range(len(self.grid[i])):
+                    if self.grid[i][j] == (-5, -5, -5, -5):
+                        line += '\033[91m' + 'I' + '\033[0m'  # Red color for 'I', then reset
+                    else:
+                        line += '\033[30m' + str(self.offsetToCharacter(self.grid[i][j])) + '\033[0m'  # Black color for non-0 and non-I, then reset
+                print(line)
+
+
+        betterPrint()
+                    
+        #iterate over the first row and run flood fill
+        for i in range(len(self.grid[0])):
+            self.floodFill((0, i))
+            
+        #iterate over the last row and run flood fill
+        for i in range(len(self.grid[len(self.grid) - 1])):
+            self.floodFill((len(self.grid) - 1, i))
+        
+        #iterate over the first column and run flood fill
+        for i in range(len(self.grid)):
+            self.floodFill((i, 0))
+        
+        #iterate over the last column and run flood fill
+        for i in range(len(self.grid)):
+            self.floodFill((i, len(self.grid[i]) - 1))
+            
+        #count all the dots
+        count = 0
+        for i in range(len(self.grid)):
+            for j in range(len(self.grid[i])):
+                if self.grid[i][j] == ".":
+                    self.grid[i][j] = "I"
+                    count += 1
+            
+        print(count)
+        betterPrint()
+        
+        return 0
     
+    def floodFill(self, node):
+        
+        char = str(self.offsetToCharacter(self.grid[node[0]][node[1]]))
+        if char != ".":
+            return
+        
+        def getNeighbours(node):
+            neighbours = []
+            
+            #get all the nodes, up down left right top right top left bottom right bottom left
+            
+            if node[0] - 1 >= 0:
+                neighbours.append((node[0] - 1, node[1]))
+            
+            if node[0] + 1 < len(self.grid):
+                neighbours.append((node[0] + 1, node[1]))
+            
+            if node[1] - 1 >= 0:
+                neighbours.append((node[0], node[1] - 1))
+            
+            if node[1] + 1 < len(self.grid[0]):
+                neighbours.append((node[0], node[1] + 1))
+
+            return neighbours
+        
+        queue = deque([node])
+        visited = set()
+        
+        while queue:
+            node = queue.popleft()
+            # print(node)
+            if node not in visited:
+                visited.add(node)
+                char = "0"
+                
+                for neighbour in getNeighbours(node):
+                    if neighbour not in visited:
+                        n_char = str(self.offsetToCharacter(self.grid[neighbour[0]][neighbour[1]]))
+                        # if n_char == "." or not self.inLoop(neighbour):
+                        if self.inLoop(neighbour):
+                            queue.append(neighbour)
+        for node in visited:
+            self.grid[node[0]][node[1]] = "I"
+            
+
+    def inLoop(self, node):
+        # check if the node is in a loop
+        # if it is, return true
+        char = str(self.offsetToCharacter(self.grid[node[0]][node[1]]))
+        if char not in self.characters:
+            return False
+        
+        #check if the node is in a loop
+        #by checking if it's neighbours eventually lead back to it
+        visited = set()
+        queue = deque([node])
+        
+        while queue:
+            node = queue.popleft()
+            if node not in visited:
+                visited.add(node)
+                
+                for neighbour in self.getNeighbours(node):
+                    if neighbour not in visited:
+                        if self.grid[neighbour[0]][neighbour[1]] == char:
+                            return True
+                        else:
+                            queue.append(neighbour)
+
+        return False
+    
+    
+    def inBounds(self, node):
+        rows = len(self.grid)
+        cols = len(self.grid[0]) if rows > 0 else 0
+        
+        row, col = node
+        
+        return row >= 0 and row < rows and col >= 0 and col < cols
     
     def getNeighbours(self, node):
         neighbours = []
@@ -63,7 +181,7 @@ class Day10:
         return None
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "2023", "day10", "input.txt")
+        inputPath = os.path.join(os.getcwd(), "2023", "day10", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
             
@@ -90,9 +208,13 @@ class Day10:
             self.grid.append(row)
     
     def characterToOffset(self, character):
+        if character not in self.characters:
+            return str(character)
         return self.offset[self.characters.index(character)]
     
     def offsetToCharacter(self, offset):
+        if offset not in self.offset:
+            return "I"
         return self.characters[self.offset.index(offset)]
     
     def printGrid(self):

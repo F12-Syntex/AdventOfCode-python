@@ -30,7 +30,6 @@ class Day11:
                 y += 1 if y < end[1] else -1
                 
             dist += step-1 if self.grid[y][x] == 'x' else 1
-
         return dist
     
     def findGalaxies(self):

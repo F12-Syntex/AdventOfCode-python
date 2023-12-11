@@ -190,7 +190,7 @@
         "kind": 6,
         "importPath": "2023.day10.Day10",
         "description": "2023.day10.Day10",
-        "peekOfCode": "class Day10:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        # self.printGrid()\n        visited = set()\n        queue = deque([(self.findStartPosition(), 0)]) \n        max_distance = 0\n        while queue:\n            node, distance = queue.popleft()",
+        "peekOfCode": "class Day10:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        visited = set()\n        queue = deque([(self.findStartPosition(), 0)]) \n        max_distance = 0\n        while queue:\n            node, distance = queue.popleft()\n            if node not in visited:",
         "detail": "2023.day10.Day10",
         "documentation": {}
     },
