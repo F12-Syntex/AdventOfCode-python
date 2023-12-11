@@ -17,28 +17,11 @@
         "documentation": {}
     },
     {
-        "label": "deque",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
         "label": "Counter",
         "importPath": "collections",
         "description": "collections",
         "isExtraImport": true,
         "detail": "collections",
-        "documentation": {}
-    },
-    {
-        "label": "heapq",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "heapq",
-        "description": "heapq",
-        "detail": "heapq",
         "documentation": {}
     },
     {
@@ -243,7 +226,7 @@
         "kind": 6,
         "importPath": "2023.day11.Day11",
         "description": "2023.day11.Day11",
-        "peekOfCode": "class Day11:\n    def __init__(self):\n        self.input_content = None\n        self.grid = []\n    def solve_part1(self):\n        self.makeGrid()\n        galaxies = self.findGalaxies()\n        pairs = set()  \n        for i, galaxy in enumerate(galaxies):\n            for other_galaxy in galaxies[i+1:]: ",
+        "peekOfCode": "class Day11:\n    def __init__(self):\n        self.input_content = None\n        self.grid = []\n    def solve(self, part1):\n        step = 2 if part1 else 1000000\n        self.makeGrid(part1)\n        galaxies = self.findGalaxies()\n        pairs = set()  \n        for i, galaxy in enumerate(galaxies):",
         "detail": "2023.day11.Day11",
         "documentation": {}
     },
@@ -252,7 +235,7 @@
         "kind": 5,
         "importPath": "2023.day11.Day11",
         "description": "2023.day11.Day11",
-        "peekOfCode": "solver = Day11()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day11()\nsolver.loadInputFiles()\npart1_result = solver.solve(True)\npart2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day11.Day11",
         "documentation": {}
     },
@@ -261,7 +244,7 @@
         "kind": 5,
         "importPath": "2023.day11.Day11",
         "description": "2023.day11.Day11",
-        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part1_result = solver.solve(True)\npart2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day11.Day11",
         "documentation": {}
     },
@@ -270,7 +253,7 @@
         "kind": 5,
         "importPath": "2023.day11.Day11",
         "description": "2023.day11.Day11",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part2_result = solver.solve(False)\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day11.Day11",
         "documentation": {}
     },
