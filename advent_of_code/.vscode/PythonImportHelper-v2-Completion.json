@@ -258,6 +258,42 @@
         "documentation": {}
     },
     {
+        "label": "Day12",
+        "kind": 6,
+        "importPath": "2023.day12.Day12",
+        "description": "2023.day12.Day12",
+        "peekOfCode": "class Day12:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            springs = line.split(\" \")[0]\n            groups = list(map(int, line.split(\" \")[1].split(\",\")))\n            self.expandSprings(springs, groups)\n            exit()\n        return 0",
+        "detail": "2023.day12.Day12",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day12.Day12",
+        "description": "2023.day12.Day12",
+        "peekOfCode": "solver = Day12()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day12.Day12",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day12.Day12",
+        "description": "2023.day12.Day12",
+        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day12.Day12",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day12.Day12",
+        "description": "2023.day12.Day12",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day12.Day12",
+        "documentation": {}
+    },
+    {
         "label": "Day2",
         "kind": 6,
         "importPath": "2023.day2.Day2",

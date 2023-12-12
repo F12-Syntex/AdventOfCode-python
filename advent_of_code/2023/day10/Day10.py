@@ -29,11 +29,17 @@ class Day10:
             for i in range(len(self.grid)):
                 line = ""
                 for j in range(len(self.grid[i])):
-                    if self.grid[i][j] == (-5, -5, -5, -5):
-                        line += '\033[91m' + 'I' + '\033[0m'  # Red color for 'I', then reset
+                    if self.offsetToCharacter(self.grid[i][j]) == '.':
+                        line += '\033[91m' + 'I' + '\033[0m'
+                    elif self.offsetToCharacter(self.grid[i][j]) == '>':
+                        line += '\033[33m' + '>' + '\033[0m'  
+                    elif self.offsetToCharacter2(self.grid[i][j]) == '┌':  #
+                        line += '\033[95m' + '┌' + '\033[0m'
                     else:
-                        line += '\033[30m' + str(self.offsetToCharacter(self.grid[i][j])) + '\033[0m'  # Black color for non-0 and non-I, then reset
+                        line += '\033[95m' + str(self.offsetToCharacter2(self.grid[i][j])) + '\033[0m'
+
                 print(line)
+
 
 
         betterPrint()
@@ -58,14 +64,11 @@ class Day10:
         count = 0
         for i in range(len(self.grid)):
             for j in range(len(self.grid[i])):
-                if self.grid[i][j] == ".":
-                    self.grid[i][j] = "I"
+                if self.offsetToCharacter(self.grid[i][j]) == '>':
                     count += 1
             
-        print(count)
         betterPrint()
-        
-        return 0
+        return count
     
     def floodFill(self, node):
         
@@ -105,39 +108,18 @@ class Day10:
                 for neighbour in getNeighbours(node):
                     if neighbour not in visited:
                         n_char = str(self.offsetToCharacter(self.grid[neighbour[0]][neighbour[1]]))
-                        # if n_char == "." or not self.inLoop(neighbour):
-                        if self.inLoop(neighbour):
+                        if n_char == ".":
                             queue.append(neighbour)
+                            continue
+                        
+                        #check if we can pass through this wall
+                        node = self.getPassThroughPosition(neighbour)
+                        if node:
+                            queue.append(node)
+                        
+                        
         for node in visited:
-            self.grid[node[0]][node[1]] = "I"
-            
-
-    def inLoop(self, node):
-        # check if the node is in a loop
-        # if it is, return true
-        char = str(self.offsetToCharacter(self.grid[node[0]][node[1]]))
-        if char not in self.characters:
-            return False
-        
-        #check if the node is in a loop
-        #by checking if it's neighbours eventually lead back to it
-        visited = set()
-        queue = deque([node])
-        
-        while queue:
-            node = queue.popleft()
-            if node not in visited:
-                visited.add(node)
-                
-                for neighbour in self.getNeighbours(node):
-                    if neighbour not in visited:
-                        if self.grid[neighbour[0]][neighbour[1]] == char:
-                            return True
-                        else:
-                            queue.append(neighbour)
-
-        return False
-    
+            self.grid[node[0]][node[1]] = ">"
     
     def inBounds(self, node):
         rows = len(self.grid)
@@ -197,6 +179,7 @@ class Day10:
                 (0, 0, 0, 0), #'.'
                 (1, 1, 1, 1)] #'S'
         self.characters = ['|', '-', 'L', 'J', '7', 'F', '.', 'S']
+        self.characters2 = ['│', '─', '└', '┘', '┐', '┌', '.', 'S']
         
         for line in self.input_content.splitlines():
             row = []
@@ -214,8 +197,13 @@ class Day10:
     
     def offsetToCharacter(self, offset):
         if offset not in self.offset:
-            return "I"
+            return ">"
         return self.characters[self.offset.index(offset)]
+    
+    def offsetToCharacter2(self, offset):
+        if offset not in self.offset:
+            return ">"
+        return self.characters2[self.offset.index(offset)]
     
     def printGrid(self):
         print(self.input_content)
