@@ -1,82 +1,45 @@
 import os
+
 class Day12:
     def __init__(self):
         self.input_content = None
-
+    
+    def verify(self, dots, blocks):
+        curr = 0
+        visited = []
+        for character in dots:
+            if character == ".":
+                if curr > 0:
+                    visited.append(curr)
+                curr = 0
+            elif character == "#":
+                curr += 1
+            else:
+                assert False
+        
+        if curr > 0:
+            visited.append(curr)
+        
+        return visited == blocks
+    
+    def find(self, dots, blocks, index):
+        if index == len(dots):
+            return 1 if self.verify(dots, blocks) else 0
+        if dots[index] == "?":
+            return (self.find(dots[:index] + "#" + dots[index+1:], blocks, index + 1) + 
+                    self.find(dots[:index] + "." + dots[index+1:], blocks, index + 1))
+        else:
+            return self.find(dots, blocks, index + 1)
+        
     def solve_part1(self):
+        res = 0
         for line in self.input_content.splitlines():
-            
             springs = line.split(" ")[0]
             groups = list(map(int, line.split(" ")[1].split(",")))
-        
-            self.expandSprings(springs, groups)
             
-            
-            exit()
-        
-        return 0
-    
-    def expandSprings(self, springs, groups):
-        for contiguous_length in groups:
-            groupedData = self.groupData(springs)
-            # print()
-            subsets = []
-            for group in groupedData:
-                # print(springs, group, contiguous_length)
-                # print(group)
-                permutations = self.permute(group, contiguous_length)
-                subsets.append(permutations)
-                # print("\t-",permutations)
-            flatten = self.flatten(subsets)
-            print(flatten)
-
-            exit()
-            
-            
-    def flatten(self, subsets):
-        result = []
-        for sub_array in subsets:
-            if not sub_array:
-                result.append(['.' * len(subsets[0][0])])
-            else:
-                new_sub_array = [''.join(entry) for entry in sub_array]
-                result.append(new_sub_array)
-        return result
-
-
-    
-    def permute(self, group, contiguous_length):
-        res = set()
-        for l in range(len(group) - contiguous_length + 1):
-            tmp, c = [], sum(1 for element in group if element == '#')
-            # print(l)
-            for r in range(len(group)):
-                # print("\t", r, c, tmp, c, contiguous_length, group[l], r >= l, group)
-                if group[l] == '?' and c < contiguous_length and r >= l:
-                    c+=1
-                    tmp.append("#")
-                else:
-                    tmp.append(group[r])
-            res.add(tuple(tmp))
-        
-        return list(res)
-                
-    
-    def groupData(self, springs):
-        res = []
-        tmp = []
-        for spring in springs:
-            if spring == '.':
-                if tmp:
-                    res.append(tmp)
-                tmp = []
-                res.append(tmp)
-            else:
-                tmp.append(spring)
-        if tmp:
-            res.append(tmp)
+            score = self.find(springs, groups, 0)
+            res += score
         return res
-        
     
     def solve_part2(self):
         return 0
@@ -85,6 +48,8 @@ class Day12:
         inputPath = os.path.join(os.getcwd(), "2023", "day12", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
+        
+        self.grid = [[character for character in self.input_content] for line in self.input_content.splitlines()]
 
 solver = Day12()
 solver.loadInputFiles()
