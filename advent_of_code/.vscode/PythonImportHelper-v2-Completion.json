@@ -118,7 +118,7 @@
         "kind": 6,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "class Day:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "peekOfCode": "class Day:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -127,7 +127,7 @@
         "kind": 5,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "solver = Day()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -136,7 +136,7 @@
         "kind": 5,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -145,7 +145,7 @@
         "kind": 5,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -363,6 +363,42 @@
         "description": "2023.day14.Day14",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day14.Day14",
+        "documentation": {}
+    },
+    {
+        "label": "Day15",
+        "kind": 6,
+        "importPath": "2023.day15.Day15",
+        "description": "2023.day15.Day15",
+        "peekOfCode": "class Day15:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "detail": "2023.day15.Day15",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day15.Day15",
+        "description": "2023.day15.Day15",
+        "peekOfCode": "solver = Day15()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day15.Day15",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day15.Day15",
+        "description": "2023.day15.Day15",
+        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day15.Day15",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day15.Day15",
+        "description": "2023.day15.Day15",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day15.Day15",
         "documentation": {}
     },
     {

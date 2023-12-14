@@ -1,6 +1,6 @@
 import os
 
-class Day:
+class Day15:
     def __init__(self):
         self.input_content = None
 
@@ -14,7 +14,7 @@ class Day:
         return 0
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "advent_of_code", "2023", "day", "test.txt")
+        inputPath = os.path.join(os.getcwd(), "2023", "day15", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
             
@@ -25,7 +25,7 @@ class Day:
         for line in self.grid:
             print(line)
 
-solver = Day()
+solver = Day15()
 solver.loadInputFiles()
 
 part1_result = solver.solve_part1()
