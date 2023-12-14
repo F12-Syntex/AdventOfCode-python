@@ -330,6 +330,42 @@
         "documentation": {}
     },
     {
+        "label": "Day14",
+        "kind": 6,
+        "importPath": "2023.day14.Day14",
+        "description": "2023.day14.Day14",
+        "peekOfCode": "class Day14:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        grid = [[c for c in line] for line in self.input_content.split(\"\\n\")]\n        grid = self.flipGravity(grid)\n        return self.score(grid)\n    def solve_part2(self):\n        grid = [[c for c in line] for line in self.input_content.split(\"\\n\")]\n        res = {}",
+        "detail": "2023.day14.Day14",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day14.Day14",
+        "description": "2023.day14.Day14",
+        "peekOfCode": "solver = Day14()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day14.Day14",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day14.Day14",
+        "description": "2023.day14.Day14",
+        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day14.Day14",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day14.Day14",
+        "description": "2023.day14.Day14",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "detail": "2023.day14.Day14",
+        "documentation": {}
+    },
+    {
         "label": "Day2",
         "kind": 6,
         "importPath": "2023.day2.Day2",

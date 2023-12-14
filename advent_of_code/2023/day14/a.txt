@@ -1,0 +1,107 @@
+import os
+
+class Day14:
+    def __init__(self):
+        self.input_content = None
+
+    def solve_part1(self):
+        grid = [[c for c in line] for line in self.input_content.split("\n")]
+        
+        grid = self.roll(grid)
+            
+        return self.score(grid)
+    
+    
+    def score(self, grid):
+        sum = 0
+        for y in range(len(grid)):
+            impact = len(grid) - y
+            # print(grid[y], impact, grid[y].count('O'), grid[y].count('O') * impact)
+            sum += grid[y].count('O') * impact
+        return sum
+    
+    
+    def rotate(self, G):
+        R = len(G)
+        C = len(G[0])
+        NG = [['?' for _ in range(R)] for _ in range(C)]
+        for r in range(R):
+            for c in range(C):
+                NG[c][R-1-r] = G[r][c]
+        return NG
+
+    def roll(self, G):
+        R = len(G)
+        C = len(G[0])
+        for c in range(C):
+            for _ in range(R):
+                for r in range(R):
+                    if G[r][c]=='O' and r>0 and G[r-1][c]=='.':
+                        G[r][c]='.'
+                        G[r-1][c] = 'O'
+        return G
+    
+    # def flipGravity(self, grid):
+    #     for y in range(len(grid)):
+    #         for x in range(len(grid[y])):
+    #             if grid[y][x] == 'O':
+    #                 self.flipGravityAt(grid, x, y)
+    #     return grid
+                    
+    # def rotate(self, grid):
+    #     rows = len(grid)
+    #     cols = len(grid[0])
+    #     NG = [['?' for _ in range(rows)] for _ in range(cols)]
+    #     for y in range(rows):
+    #         for x in range(cols):
+    #             NG[x][rows - 1 - y] = grid[y][x]
+    #     return NG
+
+        
+    
+    def flipGravityAt(self, grid, x, y):
+            ny = y
+            while ny > 0 and grid[ny-1][x] == '.':
+                ny -= 1
+            grid[y][x] = '.'
+            grid[ny][x] = 'O'
+    
+    def solve_part2(self):
+        grid = [[c for c in line] for line in self.input_content.split("\n")]
+        
+        res = {}
+
+        target = 1000000000
+        curr = 0
+        
+        while curr<target:
+            curr += 1
+            for j in range(4):
+                grid = self.roll(grid)
+                grid = self.rotate(grid)
+            Gh = tuple(tuple(row) for row in grid)
+            if Gh in res:
+                cycle_length = curr-res[Gh]
+                amt = (target-curr)//cycle_length
+                curr += amt * cycle_length
+            res[Gh] = curr
+        return self.score(grid)
+    
+    def print_grid(self, grid):
+        print()
+        for row in grid:
+            print("".join(row))
+
+    def loadInputFiles(self):
+        inputPath = os.path.join(os.getcwd(), "2023", "day14", "input.txt")
+        with open(inputPath, "r") as f:
+            self.input_content = f.read()
+
+solver = Day14()
+solver.loadInputFiles()
+
+part1_result = solver.solve_part1()
+print("Solution to Part 1:", part1_result)
+
+part2_result = solver.solve_part2()
+print("Solution to Part 2:", part2_result)
