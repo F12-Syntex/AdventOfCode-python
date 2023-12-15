@@ -9,6 +9,15 @@
         "documentation": {}
     },
     {
+        "label": "collections",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "collections",
+        "description": "collections",
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
         "label": "deque",
         "importPath": "collections",
         "description": "collections",
@@ -262,7 +271,7 @@
         "kind": 6,
         "importPath": "2023.day12.Day12",
         "description": "2023.day12.Day12",
-        "peekOfCode": "class Day12:\n    def __init__(self):\n        self.input_content = None\n    def verify(self, dots, blocks):\n        curr = 0\n        visited = []\n        for character in dots:\n            if character == \".\":\n                if curr > 0:\n                    visited.append(curr)",
+        "peekOfCode": "class Day12:\n    def __init__(self):\n        self.input_content = None\n        self.cache = {}\n    def solve_part1(self):\n        res = 0\n        for line in self.input_content.splitlines():\n            onsens, groups = line.split()\n            groups = tuple(map(int, groups.split(\",\")))\n            res += self.permutations(onsens, groups)",
         "detail": "2023.day12.Day12",
         "documentation": {}
     },
@@ -271,7 +280,7 @@
         "kind": 5,
         "importPath": "2023.day12.Day12",
         "description": "2023.day12.Day12",
-        "peekOfCode": "solver = Day12()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day12()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day12.Day12",
         "documentation": {}
     },
@@ -280,7 +289,7 @@
         "kind": 5,
         "importPath": "2023.day12.Day12",
         "description": "2023.day12.Day12",
-        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day12.Day12",
         "documentation": {}
     },
@@ -289,7 +298,7 @@
         "kind": 5,
         "importPath": "2023.day12.Day12",
         "description": "2023.day12.Day12",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day12.Day12",
         "documentation": {}
     },
