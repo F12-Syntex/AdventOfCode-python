@@ -370,7 +370,7 @@
         "kind": 6,
         "importPath": "2023.day15.Day15",
         "description": "2023.day15.Day15",
-        "peekOfCode": "class Day15:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "peekOfCode": "class Day15:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        res = 0\n        for word in self.input_content.split(\",\"):\n            res += self.hash(word)\n        return res\n    def hash(self, word):\n        cres = 0",
         "detail": "2023.day15.Day15",
         "documentation": {}
     },
@@ -703,7 +703,7 @@
         "kind": 5,
         "importPath": "2023.helper.timeCalc",
         "description": "2023.helper.timeCalc",
-        "peekOfCode": "t1 = '01:01:57'\nt2 = '01:25:34'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1",
+        "peekOfCode": "t1 = '00:06:16'\nt2 = '00:47:27'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1",
         "detail": "2023.helper.timeCalc",
         "documentation": {}
     },
@@ -712,7 +712,7 @@
         "kind": 5,
         "importPath": "2023.helper.timeCalc",
         "description": "2023.helper.timeCalc",
-        "peekOfCode": "t2 = '01:25:34'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1\n    t3 = str(t3//3600) + ':' + str(t3%3600//60) + ':' + str(t3%60)",
+        "peekOfCode": "t2 = '00:47:27'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1\n    t3 = str(t3//3600) + ':' + str(t3%3600//60) + ':' + str(t3%60)",
         "detail": "2023.helper.timeCalc",
         "documentation": {}
     }
