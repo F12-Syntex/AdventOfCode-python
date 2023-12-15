@@ -370,7 +370,7 @@
         "kind": 6,
         "importPath": "2023.day15.Day15",
         "description": "2023.day15.Day15",
-        "peekOfCode": "class Day15:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        res = 0\n        for word in self.input_content.split(\",\"):\n            res += self.hash(word)\n        return res\n    def hash(self, word):\n        cres = 0",
+        "peekOfCode": "class Day15:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        return sum(self.hash(word) for word in self.input_content.split(\",\"))\n    def hash(self, word):\n        cres = 0\n        for c in word:\n            cres += ord(c)\n            cres *= 17",
         "detail": "2023.day15.Day15",
         "documentation": {}
     },

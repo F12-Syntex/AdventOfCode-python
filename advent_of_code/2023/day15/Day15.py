@@ -1,21 +1,11 @@
 import os
 
-
-# Determine the ASCII code for the current character of the string.
-# Increase the current value by the ASCII code you just determined.
-# Set the current value to itself multiplied by 17.
-# Set the current value to the remainder of dividing itself by 256.
-
 class Day15:
     def __init__(self):
         self.input_content = None
 
     def solve_part1(self):
-        res = 0
-        for word in self.input_content.split(","):
-            res += self.hash(word)
-            
-        return res
+        return sum(self.hash(word) for word in self.input_content.split(","))
 
     def hash(self, word):
         cres = 0
@@ -26,51 +16,41 @@ class Day15:
         return cres
     
     def solve_part2(self):
-        res = 0
         mapping = {}
         for word in self.input_content.split(","):
             if '=' in word:
                 label, value = word.split("=")
                 box = self.hash(label)
-                
                 data = (label, value)
+                
                 
                 if box not in mapping:
                     mapping[box] = [data]
-                else:
-                    arr = mapping[box]
-                    flag = False
-                    index = 0
-                    for item in arr:
-                        if item[0] == label:
-                            mapping[box][index] = data
-                            flag = True
-                        index += 1
-                    
-                    if not flag:
-                        arr.append(data)
-                        
-                    mapping[box] = arr
+                    continue
+            
+                flag = any(item[0] == label for item in mapping[box]) 
+                
+                if not flag:
+                    mapping[box].append(data)
+                    continue
+                
+                for index in range(len(mapping[box])):
+                    if mapping[box][index][0] == label:
+                        mapping[box][index] = data
+                        break
+                
             
             if '-' in word:
-                label, value = word.split("-")
-                
+                label = word.split("-")[0]
                 box = self.hash(label)
+                
                 if box in mapping:
-                    arr = mapping[box]
-                    for item in arr:
-                        if item[0] == label:
-                            arr.remove(item)
-                    mapping[box] = arr
-            # print(mapping)    
+                    mapping[box] = [item for item in mapping[box] if item[0] != label]
         
+        res = 0
         for key in mapping:
-            arr = mapping[key]
-            for slot in range(len(arr)):
-                item = arr[slot]
-                focus = (1+int(key))*(1+int(slot))*int(item[1])
-                # print((1+key), " * ", (1+slot), " * ", item[1], " = ", focus)
-                res += focus
+            for slot, item in enumerate(mapping[key]):
+                res += (1+int(key))*(1+slot)*int(item[1])
                 
         return res
 
