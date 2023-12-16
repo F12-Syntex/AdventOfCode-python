@@ -53,37 +53,37 @@
     {
         "label": "Day1",
         "kind": 6,
-        "importPath": "2015.day1.Day1",
-        "description": "2015.day1.Day1",
+        "importPath": "2015.day1.day1",
+        "description": "2015.day1.day1",
         "peekOfCode": "class Day1:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        floor = 0\n        for char in self.input_content:\n            if char == \"(\":\n                floor += 1\n            elif char == \")\":\n                floor -= 1",
-        "detail": "2015.day1.Day1",
+        "detail": "2015.day1.day1",
         "documentation": {}
     },
     {
         "label": "solver",
         "kind": 5,
-        "importPath": "2015.day1.Day1",
-        "description": "2015.day1.Day1",
+        "importPath": "2015.day1.day1",
+        "description": "2015.day1.day1",
         "peekOfCode": "solver = Day1()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2015.day1.Day1",
+        "detail": "2015.day1.day1",
         "documentation": {}
     },
     {
         "label": "part1_result",
         "kind": 5,
-        "importPath": "2015.day1.Day1",
-        "description": "2015.day1.Day1",
+        "importPath": "2015.day1.day1",
+        "description": "2015.day1.day1",
         "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2015.day1.Day1",
+        "detail": "2015.day1.day1",
         "documentation": {}
     },
     {
         "label": "part2_result",
         "kind": 5,
-        "importPath": "2015.day1.Day1",
-        "description": "2015.day1.Day1",
+        "importPath": "2015.day1.day1",
+        "description": "2015.day1.day1",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2015.day1.Day1",
+        "detail": "2015.day1.day1",
         "documentation": {}
     },
     {
