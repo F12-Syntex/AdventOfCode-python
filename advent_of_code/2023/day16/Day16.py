@@ -6,28 +6,11 @@ class Day16:
         self.visited = set()
         
     def solve_part1(self):
-        
         self.loadGrid()
-
         start = (-1, 0, (1, 0))
-        
         return self.traverse(start)
         
-
-    def resolveMaze(self):
-        for i in self.visited:
-            if self.grid[i[1]][i[0]] == ".":
-                self.grid[i[1]][i[0]] = "#"
-
-    def count(self):
-        unique = set()
-        for i in self.visited:
-            if i[0] < 0 or i[1] < 0:
-                continue
-            unique.add((i[0], i[1]))
-        return len(unique)
-
-
+        
     def traverse(self, start):
         stack = [start]
 
@@ -75,33 +58,22 @@ class Day16:
         self.visited = set()
         return len(unique)
 
-
-            
     def solve_part2(self):
-        self.loadGrid()
-        maximimum = 0
+        res = 0
         
         for y in range(len(self.grid)):
-            res = self.traverse((0, y, (1, 0)))
-            if res > maximimum:
-                maximimum = res
+            res = max(res, self.traverse((0, y, (1, 0))))
             
         for x in range(len(self.grid[0])):
-            res = self.traverse((x, 0, (0, 1)))
-            if res > maximimum:
-                maximimum = res
+            res = max(res, self.traverse((x, 0, (0, 1))))
         
         for y in range(len(self.grid) - 1, -1, -1):
-            res = self.traverse((len(self.grid[0])-1, y, (-1, 0)))
-            if res > maximimum:
-                maximimum = res
+            res = max(res, self.traverse((len(self.grid[0])-1, y, (-1, 0))))
             
         for x in range(len(self.grid[0]) - 1, -1, -1):
-            res = self.traverse((x, len(self.grid)-1, (0, -1)))
-            if res > maximimum:
-                maximimum = res
+            res = max(res, self.traverse((x, len(self.grid)-1, (0, -1))))
                 
-        return maximimum
+        return res
 
     def loadInputFiles(self):
         inputPath = os.path.join(os.getcwd(), "2023", "day16", "input.txt")

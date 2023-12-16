@@ -415,7 +415,7 @@
         "kind": 6,
         "importPath": "2023.day16.Day16",
         "description": "2023.day16.Day16",
-        "peekOfCode": "class Day16:\n    def __init__(self):\n        self.input_content = None\n        self.visited = set()\n    def solve_part1(self):\n        self.loadGrid()\n        start = (-1, 0, (1, 0))\n        return self.traverse(start)\n    def resolveMaze(self):\n        for i in self.visited:",
+        "peekOfCode": "class Day16:\n    def __init__(self):\n        self.input_content = None\n        self.visited = set()\n    def solve_part1(self):\n        self.loadGrid()\n        start = (-1, 0, (1, 0))\n        return self.traverse(start)\n    def traverse(self, start):\n        stack = [start]",
         "detail": "2023.day16.Day16",
         "documentation": {}
     },
