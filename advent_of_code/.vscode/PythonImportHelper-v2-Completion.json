@@ -199,7 +199,7 @@
         "kind": 6,
         "importPath": "2023.day10.Day10",
         "description": "2023.day10.Day10",
-        "peekOfCode": "class Day10:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        visited = set()\n        queue = deque([(self.findStartPosition(), 0)]) \n        max_distance = 0\n        while queue:\n            node, distance = queue.popleft()\n            if node not in visited:",
+        "peekOfCode": "class Day10:\n    def __init__(self):\n        self.input_content = None\n        #E W N S\n        #L R U D\n        self.offset = { '|' : (0, 0, 1, 1), #'|' \n                        '-' : (1, 1, 0, 0), #'-'\n                        'L' : (1, 0, 1, 0), #'L'\n                        'J' : (0, 1, 1, 0), #'J'\n                        '7' : (0, 1, 0, 1), #'7'",
         "detail": "2023.day10.Day10",
         "documentation": {}
     },
@@ -208,7 +208,7 @@
         "kind": 5,
         "importPath": "2023.day10.Day10",
         "description": "2023.day10.Day10",
-        "peekOfCode": "solver = Day10()\nsolver.loadInputFiles()\nsolver.loadGrid()\npart1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day10()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day10.Day10",
         "documentation": {}
     },
@@ -217,7 +217,7 @@
         "kind": 5,
         "importPath": "2023.day10.Day10",
         "description": "2023.day10.Day10",
-        "peekOfCode": "part1_result = solver.solve_part1()\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day10.Day10",
         "documentation": {}
     },
@@ -226,7 +226,7 @@
         "kind": 5,
         "importPath": "2023.day10.Day10",
         "description": "2023.day10.Day10",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day10.Day10",
         "documentation": {}
     },

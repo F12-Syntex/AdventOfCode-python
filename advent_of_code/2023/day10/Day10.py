@@ -5,218 +5,94 @@ class Day10:
     def __init__(self):
         self.input_content = None
         
-        
+        #E W N S
+        #L R U D
+        self.offset = { '|' : (0, 0, 1, 1), #'|' 
+                        '-' : (1, 1, 0, 0), #'-'
+                        'L' : (1, 0, 1, 0), #'L'
+                        'J' : (0, 1, 1, 0), #'J'
+                        '7' : (0, 1, 0, 1), #'7'
+                        'F' : (1, 0, 0, 1), #'F'
+                        '.' : (0, 0, 0, 0), #'.'
+                        'S' : (1, 1, 1, 1)} #'S'
+    
     def solve_part1(self):
-        visited = set()
-        queue = deque([(self.findStartPosition(), 0)]) 
-        max_distance = 0
-        
-        while queue:
-            node, distance = queue.popleft()
-            if node not in visited:
-                visited.add(node)
-                max_distance = max(max_distance, distance) 
-                
-                for neighbour in self.getNeighbours(node):
-                    if neighbour not in visited:
-                        queue.append((neighbour, distance + 1)) 
 
-        return max_distance
+        sy, sx = self.getStart()
+        
+        visited = {(sy, sx)}
+        queue = deque([(sy, sx)])
+
+        while queue:
+            x, y = queue.popleft()
+            
+            for point in [(-1, 0), (0, -1), (1, 0), (0, 1)]:
+                    if self.canExplore(x, y, point) and (x + point[0], y + point[1]) not in visited:
+                        queue.append((x + point[0], y + point[1]))
+                        visited.add((x + point[0], y + point[1]))
+
+        return len(visited) // 2
     
+        
     def solve_part2(self):
-                    
-        def betterPrint():
-            for i in range(len(self.grid)):
-                line = ""
-                for j in range(len(self.grid[i])):
-                    if self.offsetToCharacter(self.grid[i][j]) == '.':
-                        line += '\033[91m' + 'I' + '\033[0m'
-                    elif self.offsetToCharacter(self.grid[i][j]) == '>':
-                        line += '\033[33m' + '>' + '\033[0m'  
-                    elif self.offsetToCharacter2(self.grid[i][j]) == '┌':  #
-                        line += '\033[95m' + '┌' + '\033[0m'
-                    else:
-                        line += '\033[95m' + str(self.offsetToCharacter2(self.grid[i][j])) + '\033[0m'
+        sy, sx = self.getStart()
 
-                print(line)
+        # The two pipes that the animal can go to 
+        points = ((sy+y, sx+x) for x, y in [(-1, 0), (0, -1), (1, 0), (0, 1)] if self.valid_move(sy+x, sx+y) and self.canExplore(sy, sx, (x, y)))
+        intersection = set(self.offset.keys())
 
-
-
-        betterPrint()
-                    
-        #iterate over the first row and run flood fill
-        for i in range(len(self.grid[0])):
-            self.floodFill((0, i))
+        print(intersection)
             
-        #iterate over the last row and run flood fill
-        for i in range(len(self.grid[len(self.grid) - 1])):
-            self.floodFill((len(self.grid) - 1, i))
-        
-        #iterate over the first column and run flood fill
-        for i in range(len(self.grid)):
-            self.floodFill((i, 0))
-        
-        #iterate over the last column and run flood fill
-        for i in range(len(self.grid)):
-            self.floodFill((i, len(self.grid[i]) - 1))
-            
-        #count all the dots
-        count = 0
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[i])):
-                if self.offsetToCharacter(self.grid[i][j]) == '>':
-                    count += 1
-            
-        betterPrint()
-        return count
+
+        return 0
     
-    def floodFill(self, node):
+    def canExplore(self, sx, sy, direction):
+        ex = sx + direction[0]
+        ey = sy + direction[1]
         
-        char = str(self.offsetToCharacter(self.grid[node[0]][node[1]]))
-        if char != ".":
-            return
+        if not self.valid_move(ex, ey):
+            return False
         
-        def getNeighbours(node):
-            neighbours = []
-            
-            #get all the nodes, up down left right top right top left bottom right bottom left
-            
-            if node[0] - 1 >= 0:
-                neighbours.append((node[0] - 1, node[1]))
-            
-            if node[0] + 1 < len(self.grid):
-                neighbours.append((node[0] + 1, node[1]))
-            
-            if node[1] - 1 >= 0:
-                neighbours.append((node[0], node[1] - 1))
-            
-            if node[1] + 1 < len(self.grid[0]):
-                neighbours.append((node[0], node[1] + 1))
+        sc = self.grid[sx][sy]
+        ec = self.grid[ex][ey]
+        
+        mx, my = (0, 0)
 
-            return neighbours
+        if direction == (-1, 0):
+            mx, my = (2, 3)
+        if direction == (1, 0):
+            mx, my = (3, 2) 
+        if direction == (0, -1):
+            mx, my = (1, 0)
+        if direction == (0, 1):
+            mx, my = (0, 1)
         
-        queue = deque([node])
-        visited = set()
-        
-        while queue:
-            node = queue.popleft()
-            # print(node)
-            if node not in visited:
-                visited.add(node)
-                char = "0"
-                
-                for neighbour in getNeighbours(node):
-                    if neighbour not in visited:
-                        n_char = str(self.offsetToCharacter(self.grid[neighbour[0]][neighbour[1]]))
-                        if n_char == ".":
-                            queue.append(neighbour)
-                            continue
-                        
-                        #check if we can pass through this wall
-                        node = self.getPassThroughPosition(neighbour)
-                        if node:
-                            queue.append(node)
-                        
-                        
-        for node in visited:
-            self.grid[node[0]][node[1]] = ">"
+        return self.offset[sc][mx] == 1 and self.offset[ec][my] == 1 and self.offset[ec] != 'S'
     
-    def inBounds(self, node):
-        rows = len(self.grid)
-        cols = len(self.grid[0]) if rows > 0 else 0
-        
-        row, col = node
-        
-        return row >= 0 and row < rows and col >= 0 and col < cols
+    def valid_move(self, x, y):
+        return 0 <= x < len(self.grid[0]) and 0 <= y < len(self.grid)
     
-    def getNeighbours(self, node):
-        neighbours = []
-        
-        rows = len(self.grid)
-        cols = len(self.grid[0]) if rows > 0 else 0
-        
-        EAST, WEST, NORTH, SOUTH = 0, 1, 2, 3
-        
-        row, col = node
-        
-        if col + 1 < cols and self.grid[row][col][EAST] == 1 and self.grid[row][col + 1][WEST] == 1:
-            neighbours.append((row, col + 1))
-            
-        if col - 1 >= 0 and self.grid[row][col][WEST] == 1 and self.grid[row][col - 1][EAST] == 1:
-            neighbours.append((row, col - 1))
-
-        if row + 1 < rows and self.grid[row][col][SOUTH] == 1 and self.grid[row + 1][col][NORTH] == 1:
-            neighbours.append((row + 1, col))
-            
-        if row - 1 >= 0 and self.grid[row][col][NORTH] == 1 and self.grid[row - 1][col][SOUTH] == 1:
-            neighbours.append((row - 1, col))
-
-        return neighbours
-
-        
-    
-    def findStartPosition(self):
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[i])):
-                if self.grid[i][j] == (1,1,1,1):
-                    return (i, j)
-        return None
+    def getStart(self):
+        for y, line in enumerate(self.grid):
+            for x, ch, in enumerate(line):
+                if ch == "S":
+                    return (y, x)
 
     def loadInputFiles(self):
         inputPath = os.path.join(os.getcwd(), "2023", "day10", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
+        self.grid = [[c for c in line] for line in self.input_content.split("\n")]
             
-    def loadGrid(self):
-        self.grid = []
-
-        self.offset = [(0, 0, 1, 1), #'|' 
-                (1, 1, 0, 0), #'-'
-                (1, 0, 1, 0), #'L'
-                (0, 1, 1, 0), #'J'
-                (0, 1, 0, 1), #'7'
-                (1, 0, 0, 1), #'F'
-                (0, 0, 0, 0), #'.'
-                (1, 1, 1, 1)] #'S'
-        self.characters = ['|', '-', 'L', 'J', '7', 'F', '.', 'S']
-        self.characters2 = ['│', '─', '└', '┘', '┐', '┌', '.', 'S']
-        
-        for line in self.input_content.splitlines():
-            row = []
-            for character in line:                
-                if character in self.characters:
-                    row.append(self.offset[self.characters.index(character)])
-                else:
-                    row.append(character)
-            self.grid.append(row)
-    
-    def characterToOffset(self, character):
-        if character not in self.characters:
-            return str(character)
-        return self.offset[self.characters.index(character)]
-    
-    def offsetToCharacter(self, offset):
-        if offset not in self.offset:
-            return ">"
-        return self.characters[self.offset.index(offset)]
-    
-    def offsetToCharacter2(self, offset):
-        if offset not in self.offset:
-            return ">"
-        return self.characters2[self.offset.index(offset)]
-    
-    def printGrid(self):
-        print(self.input_content)
-        for i in range(len(self.grid)):
-            print(self.grid[i])
-            
-    
+    def prettyPrintGrid(self):
+        for line in self.grid:
+            print(line)
 
 solver = Day10()
 solver.loadInputFiles()
-solver.loadGrid()
-part1_result = solver.solve_part1()
-part2_result = solver.solve_part2()
 
+part1_result = solver.solve_part1()
 print("Solution to Part 1:", part1_result)
+
+part2_result = solver.solve_part2()
 print("Solution to Part 2:", part2_result)
