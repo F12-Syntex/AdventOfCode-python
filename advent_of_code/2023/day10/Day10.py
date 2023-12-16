@@ -35,27 +35,36 @@ class Day10:
     
         
     def solve_part2(self):
-        sx, sy = self.getStart()
-
-        # The two pipes that the animal can go to 
-        points = ((sy+y, sx+x) for x, y in [(-1, 0), (0, -1), (1, 0), (0, 1)] if self.valid_move(sy+x, sx+y) and self.canExplore(sy, sx, (x, y)))
-        intersection = set(self.offset.keys())
-        
-        for point in points:
-            px, py = point
-            ch = self.grid[py][px]
-            
-            print("x: ", px, sx)
-            print("y: ", py, sy)
-            
-            # print(self.findPipesThatCanConnect(ch), (1, 0))
-            print(ch)
-
-        print(intersection)
-            
-
+        sy, sx = self.getStart()
+        self.grid[sy][sx] = self.identifyPipe(sx, sy)
         return 0
 
+    def identifyPipe(self, sx, sy):
+        intersection = set(self.offset.keys())
+        
+        around = [
+            (sx, sy - 1), #left
+            (sx, sy + 1), #right
+            (sx - 1, sy), #up
+            (sx + 1, sy)  #down
+        ]    
+        
+        for point in around:
+            dx, dy = point[0] - sx, point[1] - sy
+            
+            if not self.valid_move(point[0], point[1]):
+                continue
+            
+            pipes = self.findPipesThatCanConnect(self.grid[point[1]][point[0]], (dx, dy))
+            
+            if len(pipes) == 0:
+                continue
+            
+            intersection = intersection.intersection(pipes) 
+        
+        intersection.remove('S')
+    
+        return intersection.pop()
 
     #suppose pipe is in a point 0, 0, which pipes would be able to connect to it at direction (dx, dy)?
     def findPipesThatCanConnect(self, pipe, direction):        
@@ -68,22 +77,22 @@ class Day10:
             if direction == (-1, 0):
                 #pipe to find is on the left of the pipe, so we need to make sure the pipe can go left, 
                 #and the pipe we are looking at can go right
-                if self.offset[pipe][RIGHT] == 1 and self.offset[cpipe][LEFT] == 1:
+                if self.offset[pipe][LEFT] == 1 and self.offset[cpipe][RIGHT] == 1:
                     pipes.add(cpipe)
             if direction == (1, 0):
                 #pipe to find is on the right of the pipe, so we need to make sure the pipe can go right, 
                 #and the pipe we are looking at can go left
-                if self.offset[pipe][LEFT] == 1 and self.offset[cpipe][RIGHT] == 1:
+                if self.offset[pipe][RIGHT] == 1 and self.offset[cpipe][LEFT] == 1:
                     pipes.add(cpipe)
             if direction == (0, -1):
                 #pipe to find is on the top of the pipe, so we need to make sure the pipe can go up, 
                 #and the pipe we are looking at can go down
-                if self.offset[pipe][UP] == 1 and self.offset[cpipe][DOWN] == 1:
+                if self.offset[pipe][DOWN] == 1 and self.offset[cpipe][UP] == 1:
                     pipes.add(cpipe)
             if direction == (0, 1):
                 #pipe to find is on the bottom of the pipe, so we need to make sure the pipe can go down, 
                 #and the pipe we are looking at can go up
-                if self.offset[pipe][DOWN] == 1 and self.offset[cpipe][UP] == 1:
+                if self.offset[pipe][UP] == 1 and self.offset[cpipe][DOWN] == 1:
                     pipes.add(cpipe)
         
         return pipes
@@ -122,7 +131,7 @@ class Day10:
                     return (y, x)
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "2023", "day10", "input.txt")
+        inputPath = os.path.join(os.getcwd(), "2023", "day10", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
         self.grid = [[c for c in line] for line in self.input_content.split("\n")]
