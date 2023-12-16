@@ -1,0 +1,36 @@
+
+    # def traverse(self, start):
+        
+    #     if start in self.visited:
+    #         return
+        
+    #     self.visited.add(start)
+        
+    #     x, y, velocity = start
+    #     vx, vy = velocity
+    #     nx, ny = x + vx, y + vy
+        
+    #     if ny < 0 or ny >= len(self.grid) or nx < 0 or nx >= len(self.grid[ny]):
+    #         return
+    
+    #     position = self.grid[ny][nx]
+         
+    #     if position == "-" and vx == 0:
+    #         self.traverse((nx, ny, (-1, 0)))
+    #         self.traverse((nx, ny, (1, 0)))   
+    #         return  
+        
+    #     if position == "|" and vy == 0:
+    #         self.traverse((nx, ny, (0, -1)))
+    #         self.traverse((nx, ny, (0, 1)))   
+    #         return  
+        
+    #     if position == "/":
+    #         self.traverse((nx, ny, (-vy, -vx)))
+    #         return 
+        
+    #     if position == "\\":
+    #         self.traverse((nx, ny, (vy, vx)))
+    #         return 
+        
+    #     self.traverse((nx, ny, velocity))
