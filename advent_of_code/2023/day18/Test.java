@@ -26,10 +26,10 @@ public class Test extends JFrame {
         try {
             List<String> lines = Files.readAllLines(input.toPath());
             
-            MyPanel myPanel = (MyPanel) panel; // Cast to access custom methods
-            myPanel.setLines(lines); // Pass the lines to the panel for rendering
+            MyPanel myPanel = (MyPanel) panel; 
+            myPanel.setLines(lines); 
 
-            panel.revalidate(); // Refresh the panel to reflect the added components
+            panel.revalidate(); 
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class Test extends JFrame {
         SwingUtilities.invokeLater(Test::new);
     }
 
-    // Custom JPanel to override paintComponent for drawing
+
     private class MyPanel extends JPanel {
         private List<String> lines;
 
@@ -51,17 +51,16 @@ public class Test extends JFrame {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
         
-            int x = 10;
-            int y = 10;
+            int x = 500;
+            int y = 500;
         
-            // Fill the entire panel with black color
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, getWidth(), getHeight());
         
             for (String line : lines) {
                 String[] parts = line.split(" ");
                 String direction = parts[0];
-                int distance = Integer.parseInt(parts[1]) * 1;
+                int distance = Integer.parseInt(parts[1]) * 2;
                 String color = parts[2].substring(1, parts[2].length() - 1);
         
                 g.setColor(Color.decode(color));

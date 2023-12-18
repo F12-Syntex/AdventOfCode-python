@@ -1,4 +1,5 @@
 import os
+import time
 
 class Day:
     def __init__(self):
@@ -14,7 +15,7 @@ class Day:
         return 0
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "advent_of_code", "2023", "day", "test.txt")
+        inputPath = os.path.join(os.getcwd(), "2023", "day", "test.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
             
@@ -28,8 +29,12 @@ class Day:
 solver = Day()
 solver.loadInputFiles()
 
+start_time_part1 = time.time()
 part1_result = solver.solve_part1()
-print("Solution to Part 1:", part1_result)
+end_time_part1 = time.time()
+print("Solution to Part 1:", part1_result, "completed in", round((end_time_part1 - start_time_part1) * 1000), "ms")
 
+start_time_part2 = time.time()
 part2_result = solver.solve_part2()
-print("Solution to Part 2:", part2_result)
+end_time_part2 = time.time()
+print("Solution to Part 2:", part2_result, "completed in", round((end_time_part2 - start_time_part2) * 1000), "ms")

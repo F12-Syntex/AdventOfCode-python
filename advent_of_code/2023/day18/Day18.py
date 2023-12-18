@@ -4,137 +4,58 @@ class Day18:
     def __init__(self):
         self.input_content = None
 
-    def solve_part12(self):
-        self.grid = []
-        x, y = 0, 0 
-
-        for line in self.input_content.splitlines():
-            direction = line.split()[0]
-            dist = int(line.split()[1])
-
-            ex, ey = x, y
-
-            if direction == 'L':
-                ex -= dist
-            if direction == 'R':
-                ex += dist
-            if direction == 'U':
-                ey -= dist
-            if direction == 'D':
-                ey += dist
-
-            self.grid.append(((x, y), (ex, ey)))
-            x, y = ex, ey
-
-        # the key is the y axis, and the value is a tuple containing the min and max x value for that y axis
-        mapping = {}
-        for start, end in self.grid:
-            sx, sy = start
-            ex, ey = end
-
-            for i in range(min(sy, ey), max(sy, ey) + 1):
-                if i not in mapping:
-                    mapping[i] = (min(sx, ex), max(sx, ex))
-                else:
-                    cur_min, cur_max = mapping[i]
-                    mapping[i] = (min(cur_min, min(sx, ex)), max(cur_max, max(sx, ex)))
-
-        for key in mapping:
-            print(key, mapping[key])
-
-        res = 0
-        for key in mapping:
-            minx, maxx = mapping[key]
-            res += abs(maxx - minx) + 1
-
-        return res
-    
     def solve_part1(self):
-        # self.grid = [['.' for _ in range(-200, 200)] for _ in range(-200, 200)]
-        self.grid = [['.' for _ in range(10)] for _ in range(10)]
-        x, y = 0, 0 
 
+        points = [(0, 0)]
+        movement = {
+            'U': (0, -1),
+            'D': (0, 1),
+            'L': (-1, 0),
+            'R': (1, 0)
+        }
+
+        perimeter = 0
         for line in self.input_content.splitlines():
-            direction = line.split()[0]
-            dist = int(line.split()[1])
+            direction, distance, _ = line.split(" ")
+            offset = movement[direction]
+            curr = points[-1]
+            distance = int(distance)
+            perimeter += distance
+            nx, ny = (curr[0] + distance * offset[0]), (curr[1] + distance * offset[1])
+            points.append((nx, ny))
 
-            print(direction, dist)
+        area_outside = abs(sum(points[i][0] * (points[i - 1][1] - points[(i + 1) % len(points)][1]) for i in range(len(points)))) // 2
 
-            ex, ey = 0, 0
-
-            if direction == 'L':
-                ex = x - dist
-                while x > ex:
-                    self.grid[y][x] = '#'
-                    x -= 1
-
-            if direction == 'R':
-                ex = x + dist
-                while x < ex:
-                    self.grid[y][x] = '#'
-                    x += 1
-
-            if direction == 'U':
-                ey = y - dist
-                while y > ey:
-                    self.grid[y][x] = '#'
-                    y -= 1
-
-            if direction == 'D':
-                ey = y + dist
-                while y < ey:
-                    self.grid[y][x] = '#'
-                    y += 1
-
-        self.grid[y][x] = '#'
-            
-        for y in range(len(self.grid)):
-            for x in range(len(self.grid[y])):
-                if self.grid[y][x] != '#':
-                    self.grid[y][x] = 'X'
-                else:
-                    break
-
-        for y in range(len(self.grid)):
-            for x in range(len(self.grid[y])-1, -1, -1):
-                if self.grid[y][x] != '#':
-                    self.grid[y][x] = 'X'
-                else:
-                    break
-
-                
-        # Add top to bottom
-        for x in range(len(self.grid[0])):
-            for y in range(len(self.grid)):
-                if self.grid[y][x] != '#':
-                    self.grid[y][x] = 'X'
-                else:
-                    break
-
-        # Add bottom to top
-        for x in range(len(self.grid[0])):
-            for y in range(len(self.grid)-1, -1, -1):
-                if self.grid[y][x] != '#':
-                    self.grid[y][x] = 'X'
-                else:
-                    break
-        
-        c = 0
-        for line in self.grid:
-            for ch in line:
-                if ch == '.' or ch == '#':
-                    c += 1
-            
-        for line in self.grid:
-            print(line)
-
-        return c
+        return (area_outside - perimeter // 2 + 1) + perimeter
     
     def solve_part2(self):
-        return 0
+
+        points = [(0, 0)]
+        movement = {
+            '3': (0, -1),
+            '1': (0, 1),
+            '2': (-1, 0),
+            '0': (1, 0)
+        }
+
+        perimeter = 0
+        for line in self.input_content.splitlines():
+            
+            offset = movement[line.split(" ")[2][-2]]
+            distance = int(line.split(" ")[2][2:-2], 16)
+
+            curr = points[-1]
+            distance = int(distance)
+            perimeter += distance
+            nx, ny = (curr[0] + distance * offset[0]), (curr[1] + distance * offset[1])
+            points.append((nx, ny))
+
+        area_outside = abs(sum(points[i][0] * (points[i - 1][1] - points[(i + 1) % len(points)][1]) for i in range(len(points)))) // 2
+
+        return (area_outside - perimeter // 2 + 1) + perimeter
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "2023", "day18", "test.txt")
+        inputPath = os.path.join(os.getcwd(), "2023", "day18", "input.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read()
             

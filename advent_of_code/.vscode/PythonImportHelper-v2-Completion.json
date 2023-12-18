@@ -9,6 +9,15 @@
         "documentation": {}
     },
     {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "collections",
         "kind": 6,
         "isExtraImport": true,
@@ -31,6 +40,22 @@
         "description": "collections",
         "isExtraImport": true,
         "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "heappush",
+        "importPath": "heapq",
+        "description": "heapq",
+        "isExtraImport": true,
+        "detail": "heapq",
+        "documentation": {}
+    },
+    {
+        "label": "heappop",
+        "importPath": "heapq",
+        "description": "heapq",
+        "isExtraImport": true,
+        "detail": "heapq",
         "documentation": {}
     },
     {
@@ -136,7 +161,16 @@
         "kind": 5,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "solver = Day()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "solver = Day()\nsolver.loadInputFiles()\nstart_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.boilerplate.Day",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part1",
+        "kind": 5,
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
+        "peekOfCode": "start_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -145,7 +179,25 @@
         "kind": 5,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.boilerplate.Day",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part1",
+        "kind": 5,
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
+        "peekOfCode": "end_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.boilerplate.Day",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part2",
+        "kind": 5,
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
+        "peekOfCode": "start_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -154,7 +206,16 @@
         "kind": 5,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
+        "peekOfCode": "part2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.boilerplate.Day",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part2",
+        "kind": 5,
+        "importPath": "2023.boilerplate.Day",
+        "description": "2023.boilerplate.Day",
+        "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -449,37 +510,73 @@
     {
         "label": "Day17",
         "kind": 6,
-        "importPath": "2023.day17.Day",
-        "description": "2023.day17.Day",
-        "peekOfCode": "class Day17:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
-        "detail": "2023.day17.Day",
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "class Day17:\n    def __init__(self):\n        self.input_content = None\n    def solve(self, MAX_STEPS, STEPS_REQUIRED_TO_TURN, MIN_STEPS_WITHOUT_TURN_TO_STOP):\n        self.loadGrid()\n        visited = set()\n        pq = [(0, 0, 0, 0, 0, 0)]  # heat loss, x, y, direction_x, direction_y, steps\n        while pq:\n            heat_loss, x, y, dx, dy, steps = heappop(pq)\n            if y == len(self.grid) - 1 and x == len(self.grid[0]) - 1 and steps >= MIN_STEPS_WITHOUT_TURN_TO_STOP:",
+        "detail": "2023.day17.Day17",
         "documentation": {}
     },
     {
         "label": "solver",
         "kind": 5,
-        "importPath": "2023.day17.Day",
-        "description": "2023.day17.Day",
-        "peekOfCode": "solver = Day17()\nsolver.loadInputFiles()\npart1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2023.day17.Day",
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "solver = Day17()\nsolver.loadInputFiles()\nstart_time_part1 = time.time()\npart1_result = solver.solve(3, 0, 0)\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve(10, 4, 4)\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part1",
+        "kind": 5,
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "start_time_part1 = time.time()\npart1_result = solver.solve(3, 0, 0)\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve(10, 4, 4)\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
         "documentation": {}
     },
     {
         "label": "part1_result",
         "kind": 5,
-        "importPath": "2023.day17.Day",
-        "description": "2023.day17.Day",
-        "peekOfCode": "part1_result = solver.solve_part1()\nprint(\"Solution to Part 1:\", part1_result)\npart2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2023.day17.Day",
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "part1_result = solver.solve(3, 0, 0)\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve(10, 4, 4)\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part1",
+        "kind": 5,
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "end_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve(10, 4, 4)\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part2",
+        "kind": 5,
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "start_time_part2 = time.time()\npart2_result = solver.solve(10, 4, 4)\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
         "documentation": {}
     },
     {
         "label": "part2_result",
         "kind": 5,
-        "importPath": "2023.day17.Day",
-        "description": "2023.day17.Day",
-        "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
-        "detail": "2023.day17.Day",
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "part2_result = solver.solve(10, 4, 4)\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part2",
+        "kind": 5,
+        "importPath": "2023.day17.Day17",
+        "description": "2023.day17.Day17",
+        "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day17.Day17",
         "documentation": {}
     },
     {
@@ -487,7 +584,7 @@
         "kind": 6,
         "importPath": "2023.day18.Day18",
         "description": "2023.day18.Day18",
-        "peekOfCode": "class Day18:\n    def __init__(self):\n        self.input_content = None\n    def solve_part12(self):\n        self.grid = []\n        x, y = 0, 0 \n        for line in self.input_content.splitlines():\n            direction = line.split()[0]\n            dist = int(line.split()[1])\n            ex, ey = x, y",
+        "peekOfCode": "class Day18:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        points = [(0, 0)]\n        movement = {\n            'U': (0, -1),\n            'D': (0, 1),\n            'L': (-1, 0),\n            'R': (1, 0)",
         "detail": "2023.day18.Day18",
         "documentation": {}
     },
@@ -516,6 +613,78 @@
         "description": "2023.day18.Day18",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day18.Day18",
+        "documentation": {}
+    },
+    {
+        "label": "Day19",
+        "kind": 6,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "solver = Day19()\nsolver.loadInputFiles()\nstart_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part1",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "start_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "part1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part1",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "end_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part2",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "start_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "part2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part2",
+        "kind": 5,
+        "importPath": "2023.day19.Day19",
+        "description": "2023.day19.Day19",
+        "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day19.Day19",
         "documentation": {}
     },
     {

@@ -1,2 +1,2 @@
-part1: 00:00:00
-part2: 00:00:00
+part1: N/A
+part2: N/A
