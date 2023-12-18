@@ -12,6 +12,9 @@ class Day19:
     def solve_part1(self):
         self.loadGrid()
         self.prettyPrintGrid()
+
+        for line in self.input_content.splitlines():
+            print(line)
         
         return 0
     
@@ -26,6 +29,9 @@ class Day19:
         inputFile = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "input.txt")
         if not os.path.exists(inputFile):
             content = self.aoc_utils.grab_input().rstrip()
+            if content == "ERROR":
+                print("ERROR: Could not grab input from Advent of Code.")
+                return
             with open(inputFile, "w") as f:
                 f.write(content)
             
