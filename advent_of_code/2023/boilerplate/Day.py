@@ -1,9 +1,13 @@
 import os
 import time
+from AOCInputGrabber import AOCInputGrabber
 
 class Day:
     def __init__(self):
         self.input_content = None
+        self.DAY = 0
+        self.YEAR = 2023
+        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)
 
     def solve_part1(self):
         self.loadGrid()
@@ -15,9 +19,15 @@ class Day:
         return 0
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), "2023", "day", "test.txt")
+        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "test.txt")
         with open(inputPath, "r") as f:
-            self.input_content = f.read()
+            self.input_content = f.read().rstrip()
+
+        inputFile = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "input.txt")
+        if not os.path.exists(inputFile):
+            content = self.aoc_utils.grab_input().rstrip()
+            with open(inputFile, "w") as f:
+                f.write(content)
             
     def loadGrid(self):
         self.grid = [[c for c in line] for line in self.input_content.split("\n")]

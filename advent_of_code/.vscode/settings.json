@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./2023/helper",
+        "./utils"
+    ]
+}

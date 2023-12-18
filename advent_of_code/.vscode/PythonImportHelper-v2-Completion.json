@@ -9,12 +9,37 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "time",
         "description": "time",
         "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "AOCInputGrabber",
+        "importPath": "AOCInputGrabber",
+        "description": "AOCInputGrabber",
+        "isExtraImport": true,
+        "detail": "AOCInputGrabber",
+        "documentation": {}
+    },
+    {
+        "label": "AOCInputGrabber",
+        "importPath": "AOCInputGrabber",
+        "description": "AOCInputGrabber",
+        "isExtraImport": true,
+        "detail": "AOCInputGrabber",
         "documentation": {}
     },
     {
@@ -148,11 +173,20 @@
         "documentation": {}
     },
     {
+        "label": "AOCInputGrabber",
+        "kind": 6,
+        "importPath": "2023.boilerplate.AOCInputGrabber",
+        "description": "2023.boilerplate.AOCInputGrabber",
+        "peekOfCode": "class AOCInputGrabber:\n    def __init__(self, year, day):\n        self.year = year\n        self.day = day\n    def grab_input(self):\n        session_key = os.environ.get('AOC_SESSION_KEY')\n        url = f'https://adventofcode.com/{self.year}/day/{self.day}/input'\n        headers = {'cookie': f'session={session_key}'}\n        response = requests.get(url, headers=headers)\n        if response.status_code == 200:",
+        "detail": "2023.boilerplate.AOCInputGrabber",
+        "documentation": {}
+    },
+    {
         "label": "Day",
         "kind": 6,
         "importPath": "2023.boilerplate.Day",
         "description": "2023.boilerplate.Day",
-        "peekOfCode": "class Day:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "peekOfCode": "class Day:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 0\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0",
         "detail": "2023.boilerplate.Day",
         "documentation": {}
     },
@@ -616,11 +650,20 @@
         "documentation": {}
     },
     {
+        "label": "AOCInputGrabber",
+        "kind": 6,
+        "importPath": "2023.day19.AOCInputGrabber",
+        "description": "2023.day19.AOCInputGrabber",
+        "peekOfCode": "class AOCInputGrabber:\n    def __init__(self, year, day):\n        self.year = year\n        self.day = day\n    def grab_input(self):\n        session_key = os.environ.get('AOC_SESSION_KEY')\n        url = f'https://adventofcode.com/{self.year}/day/{self.day}/input'\n        headers = {'cookie': f'session={session_key}'}\n        response = requests.get(url, headers=headers)\n        if response.status_code == 200:",
+        "detail": "2023.day19.AOCInputGrabber",
+        "documentation": {}
+    },
+    {
         "label": "Day19",
         "kind": 6,
         "importPath": "2023.day19.Day19",
         "description": "2023.day19.Day19",
-        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0\n    def solve_part2(self):\n        return 0\n    def loadInputFiles(self):",
+        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 19\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        return 0",
         "detail": "2023.day19.Day19",
         "documentation": {}
     },
