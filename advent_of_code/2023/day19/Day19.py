@@ -10,19 +10,77 @@ class Day19:
         self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)
 
     def solve_part1(self):
-        self.loadGrid()
-        self.prettyPrintGrid()
 
-        for line in self.input_content.splitlines():
-            print(line)
+        workflow = self.input_content.split("\n\n")
+
+        self.rules = workflow[0].split("\n")
+        self.data = workflow[1].split("\n")
+
+        res = 0
+
+        for variables in self.data:
+            state = self.computeState('in', variables)
+            if state[0] == 'A':
+                # print(state[1], variables)
+                res += self.computeSumOfVariables(state[1])
+
+        return res
+    
+    def computeSumOfVariables(self, values):
+
+        pairs = values[1:-1].split(',')
+        values = dict(pair.split('=') for pair in pairs)
+        values = {k: int(v) for k, v in values.items()}
+        return sum(values.values())
+
+    def computeState(self, state, variables):
+
+        # print(state, variables)
+
+        for rule in self.rules:
+            key = rule.split("{")[0]
+            if key == state:
+                computed = self.parseInput(variables, rule)
+                return self.computeState(computed, variables)
+            
+        return (state, variables)
+                
+
+    def parseInput(self, values, rule):
+        rule = rule.split("{")[1].split("}")[0]
         
-        return 0
+        pairs = values[1:-1].split(',')
+        values = dict(pair.split('=') for pair in pairs)
+        values = {k: int(v) for k, v in values.items()}
+
+        for subrule in rule.split(","):
+            if ':' in subrule: # conditional
+                target = subrule.split(":")[1]
+                comparison = subrule.split(":")[0]
+
+                variable = comparison[0]
+                operator = comparison[1]
+                value = int(comparison[2:])
+
+                # print(values, subrule)
+
+                if operator == '>':
+                    if values[variable] > value:
+                        return target
+                elif operator == '<':
+                    if values[variable] < value:
+                        return target
+                
+        return rule.split(",")[-1]
+    
+    def computeRule(self, rules, data):
+        pass
     
     def solve_part2(self):
         return 0
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "test.txt")
+        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "input.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read().rstrip()
 

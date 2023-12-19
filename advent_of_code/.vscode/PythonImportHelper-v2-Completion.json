@@ -663,7 +663,7 @@
         "kind": 6,
         "importPath": "2023.day19.Day19",
         "description": "2023.day19.Day19",
-        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 19\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        self.loadGrid()\n        self.prettyPrintGrid()\n        for line in self.input_content.splitlines():",
+        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 19\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        workflow = self.input_content.split(\"\\n\\n\")\n        self.rules = workflow[0].split(\"\\n\")\n        self.data = workflow[1].split(\"\\n\")",
         "detail": "2023.day19.Day19",
         "documentation": {}
     },
