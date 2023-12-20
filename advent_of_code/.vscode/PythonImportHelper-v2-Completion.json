@@ -43,6 +43,14 @@
         "documentation": {}
     },
     {
+        "label": "AOCInputGrabber",
+        "importPath": "AOCInputGrabber",
+        "description": "AOCInputGrabber",
+        "isExtraImport": true,
+        "detail": "AOCInputGrabber",
+        "documentation": {}
+    },
+    {
         "label": "collections",
         "kind": 6,
         "isExtraImport": true,
@@ -663,7 +671,7 @@
         "kind": 6,
         "importPath": "2023.day19.Day19",
         "description": "2023.day19.Day19",
-        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 19\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        workflow = self.input_content.split(\"\\n\\n\")\n        self.rules = workflow[0].split(\"\\n\")\n        self.data = workflow[1].split(\"\\n\")",
+        "peekOfCode": "class Day19:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 19\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        res = 0\n        for line in self.dataset:\n            dataset = self.parseDataset(line)",
         "detail": "2023.day19.Day19",
         "documentation": {}
     },
@@ -764,6 +772,87 @@
         "description": "2023.day2.Day2",
         "peekOfCode": "part2_result = solver.solve_part2()\nprint(\"Solution to Part 1:\", part1_result)\nprint(\"Solution to Part 2:\", part2_result)",
         "detail": "2023.day2.Day2",
+        "documentation": {}
+    },
+    {
+        "label": "AOCInputGrabber",
+        "kind": 6,
+        "importPath": "2023.day20.AOCInputGrabber",
+        "description": "2023.day20.AOCInputGrabber",
+        "peekOfCode": "class AOCInputGrabber:\n    def __init__(self, year, day):\n        self.year = year\n        self.day = day\n    def grab_input(self):\n        session_key = os.environ.get('AOC_SESSION_KEY')\n        url = f'https://adventofcode.com/{self.year}/day/{self.day}/input'\n        headers = {'cookie': f'session={session_key}'}\n        response = requests.get(url, headers=headers)\n        if response.status_code == 200:",
+        "detail": "2023.day20.AOCInputGrabber",
+        "documentation": {}
+    },
+    {
+        "label": "Day20",
+        "kind": 6,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "class Day20:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 20\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        broadcast = self.get_broadcast()\n        self.print_dict(broadcast)\n        # modules = self.parseSignals()",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "solver = Day20()\nsolver.loadInputFiles()\nstart_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part1",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "start_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "part1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part1",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "end_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part2",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "start_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "part2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part2",
+        "kind": 5,
+        "importPath": "2023.day20.Day20",
+        "description": "2023.day20.Day20",
+        "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day20.Day20",
         "documentation": {}
     },
     {
@@ -1032,7 +1121,7 @@
         "kind": 5,
         "importPath": "2023.helper.timeCalc",
         "description": "2023.helper.timeCalc",
-        "peekOfCode": "t1 = '00:46:28'\nt2 = '00:57:33'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1",
+        "peekOfCode": "t1 = '01:05:16'\nt2 = '03:15:15'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1",
         "detail": "2023.helper.timeCalc",
         "documentation": {}
     },
@@ -1041,7 +1130,7 @@
         "kind": 5,
         "importPath": "2023.helper.timeCalc",
         "description": "2023.helper.timeCalc",
-        "peekOfCode": "t2 = '00:57:33'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1\n    t3 = str(t3//3600) + ':' + str(t3%3600//60) + ':' + str(t3%60)",
+        "peekOfCode": "t2 = '03:15:15'\ndef timeCalc(t1, t2):\n    t1 = t1.split(':')\n    t2 = t2.split(':')\n    t1 = [int(i) for i in t1]\n    t2 = [int(i) for i in t2]\n    t1 = t1[0]*3600 + t1[1]*60 + t1[2]\n    t2 = t2[0]*3600 + t2[1]*60 + t2[2]\n    t3 = t2 - t1\n    t3 = str(t3//3600) + ':' + str(t3%3600//60) + ':' + str(t3%60)",
         "detail": "2023.helper.timeCalc",
         "documentation": {}
     }
