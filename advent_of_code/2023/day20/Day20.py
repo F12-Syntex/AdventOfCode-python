@@ -1,7 +1,10 @@
 import collections
 import os
 import time
+
 from AOCInputGrabber import AOCInputGrabber
+from Module import Module
+
 
 class Day20:
     def __init__(self):
@@ -11,110 +14,63 @@ class Day20:
         self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)
 
     def solve_part1(self):
+        modules = {}
+        broadcast_targets = []
 
-        broadcast = self.get_broadcast()
-        self.print_dict(broadcast)
+        for line in self.input_content.splitlines():
+            left, right = line.strip().split(" -> ")
+            outputs = right.split(", ")
+            if left == "broadcaster":
+                broadcast_targets = outputs
+            else:
+                type = left[0]
+                name = left[1:]
+                modules[name] = Module(name, type, outputs)
 
-        # modules = self.parseSignals()
+        for name, module in modules.items():
+            for output in module.outputs:
+                if output in modules and modules[output].type == "&":
+                    modules[output].memory[name] = "lo"
 
-        # index = 1
-        # queue = collections.deque()
-        # queue.append(modules["button"])
+        pulses = [0, 0]
 
+        for _ in range(1000):
+            pulses[0] += 1
+            q = collections.deque([("broadcaster", x, "lo") for x in broadcast_targets])
+            
+            while q:
+                origin, target, pulse = q.popleft()
 
-        # #TODO deal with % and & modules state
-        # while queue:
-        #     name, mt, dest, signal, state = queue.popleft()
-        #     print(name, "=>", mt, dest, signal, state)
+                if pulse == "lo":
+                    pulses[0] += 1
+                else:
+                    pulses[1] += 1
+                
+                if target not in modules:
+                    continue
+                
+                module = modules[target]
+                
+                if module.type == "%":
+                    if pulse == "lo":
+                        module.memory = "on" if module.memory == "off" else "off"
+                        outgoing = "hi" if module.memory == "on" else "lo"
+                        for x in module.outputs:
+                            q.append((module.name, x, outgoing))
+                else:
+                    module.memory[origin] = pulse
+                    outgoing = "lo" if all(x == "hi" for x in module.memory.values()) else "hi"
+                    for x in module.outputs:
+                        q.append((module.name, x, outgoing))
+
+        return pulses[0]*pulses[1]
         
-        #     if mt == "button":
-        #         for d in dest:
-        #             print(f"\033[33m{name} -{signal}-> {d}\033[m")
-        #             queue.append(modules[d])
-
-        #     if mt == "broadcast":
-        #         #There is a single broadcast module (named broadcaster). When it receives a pulse, it sends the same pulse to all of its destination modules.
-        #         for d in dest:
-        #             print(f"\033[33m{name} -{signal}-> {d}\033[m")
-                    
-        #     if mt == "%":
-        #         if signal == "high":
-        #             continue
-            
-        #         pulse = ""
-
-        #         if state == "off":
-        #             state, pulse = "on", "high"
-        #         else:
-        #             state, pulse = "off", "low"
-
-        #         for d in dest:
-        #             print(f"\033[33m{name} -{pulse}-> {d}\033[m")
-        #             modules[d] = (modules[d][0], modules[d][1], modules[d][2], pulse, modules[d][4])
-        #             queue.append(modules[d])
-
-                
-                
-            
-
-
-            # index += 1
-            # if index < len(modules):
-            #     queue.append(modules[index])
-
-
-        return 0
     
     def solve_part2(self):
         return 0
-    
-    def print_dict(self, dict):
-        for k, v in dict.items():
-            print(k, "=>", v)
-
-    def get_broadcast(self):
-        broadcast = {}
-        for line in self.input_content.splitlines():
-            name, rest = line.split("->")
-            mt = "broadcast"
-            name = name.strip()
-            state = "empty"
-            if name.strip() != "broadcaster":
-                mt = name[0]
-                name = name[1:]
-            if mt == "%":
-                state = "off"
-            if mt == '&':
-                state = {} #name of module : most recent signal
-            dest = rest.replace(" ", "").split(",")
-            broadcast[name] = (name, mt, dest, "low", state)
-        
-        broadcast["button"] = ("button", "button", ["broadcaster"], "low", "empty")
-        return broadcast
-
-    def parseSignals(self):
-        modules = {}
-        for line in self.input_content.splitlines():
-            name, rest = line.split("->")
-            mt = "broadcast"
-            name = name.strip()
-            state = "empty"
-            if name.strip() != "broadcaster":
-                mt = name[0]
-                name = name[1:]
-            if mt == "%":
-                state = "off"
-            if mt == '&':
-                state = {} #name of module : most recent signal
-            dest = rest.replace(" ", "").split(",")
-            modules[name] = (name, mt, dest, "low", state)
-        
-        modules["button"] = ("button", "button", ["broadcaster"], "low", "empty")
-
-        return modules
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "test.txt")
+        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "input.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read().rstrip()
 
