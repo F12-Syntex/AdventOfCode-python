@@ -101,6 +101,14 @@
         "documentation": {}
     },
     {
+        "label": "deque",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
         "label": "gcd",
         "importPath": "math",
         "description": "math",
@@ -1244,7 +1252,7 @@
         "kind": 6,
         "importPath": "2023.day22.Day22",
         "description": "2023.day22.Day22",
-        "peekOfCode": "class Day22:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 22\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        grid = []\n        bricks = []\n        labels = []",
+        "peekOfCode": "class Day22:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 22\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n        self.X_START = 0\n        self.Y_START = 1\n        self.Z_START = 2\n        self.X_END = 3",
         "detail": "2023.day22.Day22",
         "documentation": {}
     },
