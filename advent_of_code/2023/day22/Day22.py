@@ -1,7 +1,9 @@
 import os
-import time
-from AOCInputGrabber import AOCInputGrabber
 import string
+import time
+
+from AOCInputGrabber import AOCInputGrabber
+
 
 class Day22:
     def __init__(self):
@@ -11,9 +13,8 @@ class Day22:
         self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)
 
     def solve_part1(self):
-        # Define the grid and bricks
+
         grid = []
-        
         
         bricks = []
         labels = []
@@ -27,46 +28,63 @@ class Day22:
             labels.append(string.ascii_uppercase[index])
             index += 1
 
-        # Determine the maximum dimensions for the grid
         max_x = max(max(start[0], end[0]) for start, end in bricks)
         max_y = max(max(start[1], end[1]) for start, end in bricks)
         max_z = max(max(start[2], end[2]) for start, end in bricks)
 
-        # Create the 3D grid to represent the settled position of the bricks
         grid = [[[None for _ in range(max_z + 1)] for _ in range(max_x + 1)] for _ in range(max_y + 1)]
 
-        # Iterate through each brick and update the settled position based on the support from other bricks
         for (x1, y1, z1), (x2, y2, z2) in bricks:
             for x in range(min(x1, x2), max(x1, x2) + 1):
                 for y in range(min(y1, y2), max(y1, y2) + 1):
                     for z in range(min(z1, z2), max(z1, z2) + 1):
                         grid[y][x][z] = (x1, y1, z1, x2, y2, z2)
 
-        # Determine the number of bricks that are not supporting other bricks
-        disintegrated = 0
+        supporting = {}
 
-        # supportingBricks = {}
+        for supporting_brick_index in range(len(bricks)):
+            supporting_brick = bricks[supporting_brick_index]
 
-        # #remove all bricks that would not change the position of any other bricks
-        # for y in range(len(bricks)):
-        #     brick1 = bricks[y]
-        #     supporting = []
-        #     for x in range(len(bricks)):
-        #         brick2 = bricks[x]
+            supporting_bricks = []
+            for brick_index in range(len(bricks)):
+                brick = bricks[brick_index]
 
-        #         #if the z value of brick1 is more than the z value of brick2, then skip
-        #         if brick1[0][2] >= brick2[0][2]:
-        #             continue
+                if not self.is_supporting(supporting_brick, brick):
+                    continue
 
-        #         supporting.append(brick2)
+                # print(labels[supporting_brick_index], "supporting", labels[brick_index], "?")
+                supporting_bricks.append(brick_index)
 
-        #     builder = ""
-        #     supportingBricks[labels[y]] = supporting
-        #     for brick in supporting:
-        #         builder += labels[bricks.index(brick)] + " "
-        #     print(labels[y], "is supporting:", builder)
+            supporting[supporting_brick_index] = supporting_bricks
+
+        supportedBy = {}
+        for k, v in supporting.items():
+
+            supported_by = []
+            for k2, v2 in supporting.items():
+                if k in v2:
+                    supported_by.append(k2)
+            supportedBy[k] = supported_by
+
         
-        return disintegrated
+        # print("Supporting:", supportedBy)
+        a = {}
+        for k, v in supportedBy.items():
+            # print(labels[k], "supported by", [labels[x] for x in v])
+            for value in v:
+                if value not in a:
+                    a[value] = []
+                a[value].append(set(list([labels[x] for x in v])))
+
+        snum = 0
+
+        for k, v in a.items():
+            # print(labels[k], "supported by", v)
+            for j in v:
+                if len(j) == 1:
+                    snum += 1
+
+        return len(bricks) - snum
 
     #is brick1 supporting brick2?
     def is_supporting(self, brick1, brick2):
@@ -74,19 +92,23 @@ class Day22:
         brick1_start, brick1_end = brick1
         brick2_start, brick2_end = brick2
 
-        b1x1, b1y1, _ = brick1_start
-        b1x2, b1y2, _ = brick1_end
+        b1x1, b1y1, b1z1 = brick1_start
+        b1x2, b1y2, b1z2 = brick1_end
 
-        b2x1, b2y1, _ = brick2_start
-        b2x2, b2y2, _ = brick2_end
+        b2x1, b2y1, b2z1 = brick2_start
+        b2x2, b2y2, b2z2 = brick2_end
+
+        b1zmax = max(b1z1, b1z2)
+        b2zmin = min(b2z1, b2z2) 
 
         if brick1 == brick2:
-            return True
+            return False
         
-        for x in range(b1x1, b1x2):
-            for y in range(b1y1, b1y2):
-                if (x >= b2x1 and x <= b2x2) or (y >= b2y1 and y <= b2y2):
-                    return True
+        for x in range(b1x1, b1x2+1):
+            for y in range(b1y1, b1y2+1):
+                if (x >= b2x1 and x <= b2x2) and (y >= b2y1 and y <= b2y2):
+                    if b1zmax < b2zmin:
+                        return True
         
         return False
 
@@ -107,7 +129,7 @@ class Day22:
                 print(line)
 
     def loadInputFiles(self):
-        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "test.txt")
+        inputPath = os.path.join(os.getcwd(), str(self.YEAR), "day"+str(self.DAY), "input.txt")
         with open(inputPath, "r") as f:
             self.input_content = f.read().rstrip()
 

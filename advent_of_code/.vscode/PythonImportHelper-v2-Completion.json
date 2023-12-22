@@ -1244,7 +1244,7 @@
         "kind": 6,
         "importPath": "2023.day22.Day22",
         "description": "2023.day22.Day22",
-        "peekOfCode": "class Day22:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 22\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        # Define the grid and bricks\n        grid = []\n        bricks = []",
+        "peekOfCode": "class Day22:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 22\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        grid = []\n        bricks = []\n        labels = []",
         "detail": "2023.day22.Day22",
         "documentation": {}
     },
