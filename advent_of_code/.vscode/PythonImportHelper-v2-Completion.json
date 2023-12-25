@@ -75,6 +75,22 @@
         "documentation": {}
     },
     {
+        "label": "AOCInputGrabber",
+        "importPath": "AOCInputGrabber",
+        "description": "AOCInputGrabber",
+        "isExtraImport": true,
+        "detail": "AOCInputGrabber",
+        "documentation": {}
+    },
+    {
+        "label": "AOCInputGrabber",
+        "importPath": "AOCInputGrabber",
+        "description": "AOCInputGrabber",
+        "isExtraImport": true,
+        "detail": "AOCInputGrabber",
+        "documentation": {}
+    },
+    {
         "label": "re",
         "kind": 6,
         "isExtraImport": true,
@@ -163,6 +179,15 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "networkx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "networkx",
+        "description": "networkx",
+        "detail": "networkx",
         "documentation": {}
     },
     {
@@ -1414,6 +1439,168 @@
         "description": "2023.day23.Day23",
         "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
         "detail": "2023.day23.Day23",
+        "documentation": {}
+    },
+    {
+        "label": "AOCInputGrabber",
+        "kind": 6,
+        "importPath": "2023.day24.AOCInputGrabber",
+        "description": "2023.day24.AOCInputGrabber",
+        "peekOfCode": "class AOCInputGrabber:\n    def __init__(self, year, day):\n        self.year = year\n        self.day = day\n    def grab_input(self):\n        session_key = os.environ.get('AOC_SESSION_KEY')\n        url = f'https://adventofcode.com/{self.year}/day/{self.day}/input'\n        headers = {'cookie': f'session={session_key}'}\n        response = requests.get(url, headers=headers)\n        if response.status_code == 200:",
+        "detail": "2023.day24.AOCInputGrabber",
+        "documentation": {}
+    },
+    {
+        "label": "Day24",
+        "kind": 6,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "class Day24:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 24\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "solver = Day24()\nsolver.loadInputFiles()\nstart_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part1",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "start_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "part1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part1",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "end_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part2",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "start_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "part2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part2",
+        "kind": 5,
+        "importPath": "2023.day24.Day24",
+        "description": "2023.day24.Day24",
+        "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "AOCInputGrabber",
+        "kind": 6,
+        "importPath": "2023.day25.AOCInputGrabber",
+        "description": "2023.day25.AOCInputGrabber",
+        "peekOfCode": "class AOCInputGrabber:\n    def __init__(self, year, day):\n        self.year = year\n        self.day = day\n    def grab_input(self):\n        session_key = os.environ.get('AOC_SESSION_KEY')\n        url = f'https://adventofcode.com/{self.year}/day/{self.day}/input'\n        headers = {'cookie': f'session={session_key}'}\n        response = requests.get(url, headers=headers)\n        if response.status_code == 200:",
+        "detail": "2023.day25.AOCInputGrabber",
+        "documentation": {}
+    },
+    {
+        "label": "Day25",
+        "kind": 6,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "class Day25:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 25\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        graph = networkx.Graph()\n        for line in self.input_content.splitlines():\n            node, edges = line.split(\":\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "solver",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "solver = Day25()\nsolver.loadInputFiles()\nstart_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part1",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "start_time_part1 = time.time()\npart1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "part1_result",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "part1_result = solver.solve_part1()\nend_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part1",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "end_time_part1 = time.time()\nprint(\"Solution to Part 1:\", part1_result, \"completed in\", round((end_time_part1 - start_time_part1) * 1000), \"ms\")\nstart_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "start_time_part2",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "start_time_part2 = time.time()\npart2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "part2_result",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "part2_result = solver.solve_part2()\nend_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
+        "documentation": {}
+    },
+    {
+        "label": "end_time_part2",
+        "kind": 5,
+        "importPath": "2023.day25.Day25",
+        "description": "2023.day25.Day25",
+        "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
+        "detail": "2023.day25.Day25",
         "documentation": {}
     },
     {
