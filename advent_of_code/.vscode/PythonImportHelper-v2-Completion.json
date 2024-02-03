@@ -182,6 +182,14 @@
         "documentation": {}
     },
     {
+        "label": "Hellstones",
+        "importPath": "Hellstones",
+        "description": "Hellstones",
+        "isExtraImport": true,
+        "detail": "Hellstones",
+        "documentation": {}
+    },
+    {
         "label": "networkx",
         "kind": 6,
         "isExtraImport": true,
@@ -1455,7 +1463,7 @@
         "kind": 6,
         "importPath": "2023.day24.Day24",
         "description": "2023.day24.Day24",
-        "peekOfCode": "class Day24:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 24\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        for line in self.input_content.splitlines():\n            print(line)\n        return 0",
+        "peekOfCode": "class Day24:\n    def __init__(self):\n        self.input_content = None\n        self.DAY = 24\n        self.YEAR = 2023\n        self.aoc_utils = AOCInputGrabber(self.YEAR, self.DAY)\n    def solve_part1(self):\n        hellstones = []\n        for line in self.input_content.splitlines():\n            hellstones.append(Hellstones(*map(int, line.replace(\"@\", \",\").split(\",\"))))",
         "detail": "2023.day24.Day24",
         "documentation": {}
     },
@@ -1520,6 +1528,15 @@
         "description": "2023.day24.Day24",
         "peekOfCode": "end_time_part2 = time.time()\nprint(\"Solution to Part 2:\", part2_result, \"completed in\", round((end_time_part2 - start_time_part2) * 1000), \"ms\")",
         "detail": "2023.day24.Day24",
+        "documentation": {}
+    },
+    {
+        "label": "Hellstones",
+        "kind": 6,
+        "importPath": "2023.day24.Hellstones",
+        "description": "2023.day24.Hellstones",
+        "peekOfCode": "class Hellstones:\n    def __init__(self, sx, sy, sz, vx, vy, vz):\n        self.sx = sx\n        self.sy = sy\n        self.sz = sz\n        self.vx = vx\n        self.vy = vy\n        self.vz = vz\n        self.a = vy\n        self.b = -vx",
+        "detail": "2023.day24.Hellstones",
         "documentation": {}
     },
     {
