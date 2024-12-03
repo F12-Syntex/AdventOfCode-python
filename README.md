@@ -1,5 +1,3 @@
-Sure! Here's a basic template for an Advent of Code Python repository readme:
-
 ## AdventOfCode-python
 
 This repository is dedicated to storing all my solutions for the Advent of Code challenges, written in Python.
